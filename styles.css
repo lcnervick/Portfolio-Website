@@ -3,22 +3,25 @@
 * {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-	--theme-purple: hsl(315, 46%, 25%);
-	--theme-blue: hsl(197, 70%, 70%);
-	--theme-yellow: hsl(61, 100%, 85%);
-	--theme-gray: hsl(0, 0%, 91%);
-	--theme-darkgray: hsl(0 0% 30%);
-	--theme-beige: hsl(60, 13%, 82%);
-	color: var(--theme-darkgray);
-}
+	box-sizing:border-box;
+	--theme-darkgray: hsl(0, 0%, 20%);
+	--theme-lightgray: hsl(0, 0%, 90%);
+	--theme-purple: hsl(313, 45%, 45%);
+	--theme-green: hsl(133, 60%, 60%);
+	--theme-yellow: hsl(61, 96%, 74%);
+	--theme-blue: hsl(189, 70%, 45%);
+	--theme-darkblue: hsl(226deg 50% 50%);
+  }
+
 
 html {
 	height: 100%;
 	width: 100%;
 	font-size: 16px;
 	font-family: 'Work Sans', sans-serif;
-	background-color: var(--theme-purple);
+	/* background-color: hsl(189, 70%, 42%); */
+	background-color: var(--theme-darkgray);
+	color: var(--theme-lightgray);
 }
 
 li {
@@ -29,37 +32,63 @@ section {
 	width: 80%;
 	margin: 2.5rem auto;
 	padding: 1.25rem;
+	background-color: var(--theme-darkgray);
+}
+
+.lightgray {
+	background-color: var(--theme-lightgray);
+	color: var(--theme-darkgray);
+}
+
+.darkgray {
+	background-color: var(--theme-darkgray);
+	color: var(--theme-lightgray);
+}
+
+.brightgreen {
+	background-color: var(--theme-green);
+	color: var(--theme-darkgray);
+}
+.yellow {
+	background-color: var(--theme-yellow);
+	color: var(--theme-darkgray);
+}
+.skyblue {
+	background-color:var(--theme-blue);
+	color: var(--theme-darkgray);
+}
+.purple {
+	background-color:var(--theme-purple);
+	color: var(--theme-lightgray);
 }
 
 h1, h2, h3 {
 	margin:0.625rem 0;
 	color: inherit;
-	color: var(--theme-purple);
 }
 
 h1 {
 	font-weight: 700;
-	font-size: 3.75rem;
+	font-size: 30px;
 	font-family: 'Ubuntu';
 }
 
 h2 {
 	font-weight: 500;
-	font-size: 1.625rem;
-	font-family: 'Raleway';
+	font-size: 26px;
+	font-family:'Source Code Pro';
 }
 
 h3 {
 	font-weight: 500;
-	font-size: 1.5rem;
-	font-family: 'Raleway';
+	font-size: 24px;
+	font-family: 'Source Code Pro';
 }
 
 p {
 	font-weight: 400;
-	font-size: 1rem;
-	font-family: 'Work Sans';
-	line-height: 1.2;
+	font-size: 16px;
+	font-family: 'Roboto';
 }
 
 img {
@@ -72,9 +101,10 @@ a {
 	color: inherit;
 	font-size: 1.1em;
 	text-decoration: inherit;
+	font-weight: bold;
 }
 a:active {
-	color: var(--theme-blue);
+	color: var(--theme-purple);
 }
 
 .center {
@@ -87,7 +117,7 @@ button {
     padding: 0.75em 2.5em;
 	margin: 0.75rem;
     border-radius: 4px;
-    border: 4px solid var(--theme-gray);
+    border: 4px solid var(--theme-purple);
     background-color: inherit;
     text-decoration: none;
     text-align: center;
@@ -96,48 +126,28 @@ button {
     font-family: 'Ubuntu', sans-serif;
 	color: inherit;
 	cursor: pointer;
+	transition: all ease-in-out 300ms;
 }
 
 button:hover {
-	color: var(--theme-gray);
+	color: var(--theme-lightgray);
 	background-color: var(--theme-purple);
-	border: 4px solid var(--theme-purple);
-	opacity: 0.7;
-	filter: invert();
-}
-
-button:active {
+	border: 4px solid transparent;
 	opacity: 1;
 }
 
-.yellow {
-	background-color: var(--theme-yellow);
-}
-
-.lightgray {
-	background-color: var(--theme-gray);
-}
-.darkgray {
-	background-color: var(--theme-darkgray);
-}
-
-.beige {
-	background-color: var(--theme-beige);
-}
-
-.purple {
-	background-color: var(--theme-purple);
-	color: var(--theme-gray)
-}
-
-.blue {
-	background-color: var(--theme-blue);
+button:active {
+	opacity: 0.8;
 }
 
 main {
+	position: relative;
 	margin-top: 5.3125rem;
 }
 
+.material-icons {
+	vertical-align: middle;
+}
 
 
 /************  HEADER STYLES  *************/
@@ -151,8 +161,8 @@ header {
 	align-items: center;
 	justify-content: space-between;
 	padding:0.625rem 1.25rem;
-	background-color: var(--theme-gray);
 	z-index: 10;
+	background-color: var(--theme-darkgray);
 	border-bottom: 1px solid var(--theme-purple);
 }
 
@@ -190,11 +200,18 @@ nav li {
 	border-radius: 4px;
 	text-decoration: none;
 	text-align: center;
+	transition: all ease-in-out 300ms;
+}
+nav li a {
+	font-weight: normal;
+
+}
+nav li a:active {
+	color: var(--theme-blue);
 }
 nav li:hover {
 	color: var(--theme-gray);
 	background-color: var(--theme-purple);
-	opacity: 0.5;
 }
 
 @media screen and (max-width: 600px) {
@@ -259,11 +276,12 @@ nav li:hover {
 	margin: 0;
 	padding: 0;
 	width: 100%;
-	background-image: url('images/hero_background.png');
+	background-image: url('images/hero-background.png');
 	background-size: cover;
-	background-position: left center;
+	background-position: right center;
 	display: flex;
-	justify-content: end;
+	justify-content: start;
+	align-content: center;
 }
 
 #hero .content {
@@ -271,31 +289,70 @@ nav li:hover {
 	max-width: 85%;
 	padding: 3rem;
 	margin: 4rem;
-	background-color: var(--theme-purple);
-	color: var(--theme-gray);
-	opacity: 0.95;
+	background-color: var(--theme-blue);
+	color: var(--theme-lightgray);
+	display: grid;
+	gap: 0.5rem 1.5rem;
+	justify-content: center;
+	grid-template-areas:
+		"image name"
+		"image title"
+		"image contact"
+		"synaptic synaptic"
+		"button button";
+	grid-template-columns: 150px 1fr;
+}
+
+#hero .content figure {
+	grid-area: image;
+	position: relative;
+}
+#hero .content figure img {
+	position: relative;
+	border: 3px solid var(--theme-purple);
+	z-index: 1;
+}
+#hero .content figure::after {
+	content: "";
+    background-color: hsl(226deg 50% 50% / 30%);
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: -10px;
+    width: 110%;
+    height: 95%;
+    z-index: 0;
+    transform: skew(5deg, 10deg);
 }
 
 #hero .content h1 {
-	font-size: 2.5rem;
-	font-weight: 500;
-	color: inherit;
+	grid-area: name;
 }
 #hero .content h3 {
-	font-size: 2.5rem;
-	font-family: 'Caveat', cursive;
-	color: inherit;
+	grid-area: title;
 }
+#hero .content .contact-info {
+	grid-area: contact;
+	text-align: left;
+	line-height: 1.5;
+}
+#hero .content .synaptic-logo {
+	grid-area: synaptic;
+    padding: 0 0.75rem;
+    background-color: var(--theme-darkgray);
+	border: 3px solid var(--theme-lightgray);
+    margin: 1rem;
+}
+#hero .content .button {
+	grid-area: button;
+	text-align:center;
+}
+
+
 
 @media screen and (max-width: 600px) {
 	#hero .content {
 		margin: 2em auto;
-	}
-	#hero h1 {
-		font-size: 2rem;
-	}
-	#hero h2 {
-		font-size: 2rem;
 	}
 }
 
