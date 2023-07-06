@@ -10,7 +10,7 @@
 	--theme-green: hsl(133, 60%, 60%);
 	--theme-yellow: hsl(61, 96%, 74%);
 	--theme-blue: hsl(189, 70%, 45%);
-	--theme-darkblue: hsl(226deg 50% 50%);
+	--theme-darkblue: hsl(226deg 38% 50%);
   }
 
 
@@ -69,26 +69,29 @@ h1, h2, h3 {
 
 h1 {
 	font-weight: 700;
-	font-size: 30px;
+	font-size: 2.5rem;
 	font-family: 'Ubuntu';
 }
 
 h2 {
 	font-weight: 500;
-	font-size: 26px;
+	font-size: 2rem;
 	font-family:'Source Code Pro';
 }
 
 h3 {
 	font-weight: 500;
-	font-size: 24px;
+	font-size: 1.4rem;
 	font-family: 'Source Code Pro';
 }
 
 p {
 	font-weight: 400;
-	font-size: 16px;
+	font-size: 1.125rem;
 	font-family: 'Roboto';
+	line-height: 1.4;
+	letter-spacing: 0.125em;
+	margin-top: 1em;
 }
 
 img {
@@ -143,12 +146,45 @@ button:active {
 main {
 	position: relative;
 	margin-top: 5.3125rem;
+	overflow-x:hidden;
 }
 
 .material-icons {
 	vertical-align: middle;
 }
 
+aside {
+	position: relative;
+}
+aside::after {
+	content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    top: 0px;
+    left: 1rem;
+    background-color: var(--theme-blue);
+    transform: skew(20deg, -5deg);
+}
+
+@media screen and (max-width: 600px) {
+	h1 {
+		font-size: 2rem;
+	}
+	h2 {
+		font-size: 1.8rem;
+	}
+	h3 {
+		font-size: 1.25rem;
+	}
+	p {
+		font-size: 1rem;
+		letter-spacing: normal;
+	}
+}
 
 /************  HEADER STYLES  *************/
 
@@ -284,15 +320,16 @@ nav li:hover {
 	align-content: center;
 }
 
-#hero .content {
+#hero .card.content {
+	grid-area: card;
 	width: 35rem;
 	max-width: 85%;
-	padding: 3rem;
-	margin: 4rem;
+	padding: 2rem;
+	margin: 4rem 7rem;
 	background-color: var(--theme-blue);
 	color: var(--theme-lightgray);
 	display: grid;
-	gap: 0.5rem 1.5rem;
+	gap: 0.5rem 0rem;
 	justify-content: center;
 	grid-template-areas:
 		"image name"
@@ -303,18 +340,19 @@ nav li:hover {
 	grid-template-columns: 150px 1fr;
 }
 
-#hero .content figure {
+#hero .card.content figure {
 	grid-area: image;
 	position: relative;
+	left: -3rem;
 }
-#hero .content figure img {
+#hero .card.content figure img {
 	position: relative;
 	border: 3px solid var(--theme-purple);
 	z-index: 1;
 }
-#hero .content figure::after {
+#hero .card.content figure::after {
 	content: "";
-    background-color: hsl(226deg 50% 50% / 30%);
+    background-color: var(--theme-darkblue);
     display: block;
     position: absolute;
     top: 0px;
@@ -325,182 +363,305 @@ nav li:hover {
     transform: skew(5deg, 10deg);
 }
 
-#hero .content h1 {
+#hero .card.content h1 {
 	grid-area: name;
 }
-#hero .content h3 {
+#hero .card.content h3 {
 	grid-area: title;
 }
-#hero .content .contact-info {
+#hero .card.content .contact-info {
 	grid-area: contact;
 	text-align: left;
 	line-height: 1.5;
+	font-size: 18px;
 }
-#hero .content .synaptic-logo {
+#hero .card.content .synaptic-logo {
 	grid-area: synaptic;
     padding: 0 0.75rem;
     background-color: var(--theme-darkgray);
 	border: 3px solid var(--theme-lightgray);
     margin: 1rem;
 }
-#hero .content .button {
+#hero .card.content .button {
 	grid-area: button;
 	text-align:center;
 }
 
 
 
-@media screen and (max-width: 600px) {
-	#hero .content {
+#hero .card.content {
+	grid-template-areas:
+		"image name"
+		"image title"
+		"contact contact"
+		"synaptic synaptic"
+		"button button";
+	grid-template-columns: 150px 1fr;
+}
+@media screen and (max-width: 800px) {
+	#hero .card.content {
 		margin: 2em auto;
 	}
+
 }
 
 
-/*********  ABOUT STYLES  ************/
+@media screen and (max-width: 600px) {
+	#hero .card.content figure {
+		left: -1rem;
+	}	
+}
+
+
+/*********  ABOUT ME STYLES  ************/
 
 #about {
-	/* margin: 0.625rem auto; */
     padding: 0;
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    gap: 0.625rem;
-}
-
-#about > div {
-	padding: 1.5em;
 	display: grid;
-	gap: 1.5em;
-	grid-template-areas: "content content image";
-	grid-template-columns: repeat(2, 1fr) 33%;
-	align-items: center;
-	background-color: var(--theme-gray);
+	gap: 0.625rem;
+	grid-template-areas:
+		"title aside"
+		"content aside"
+		"experience experience";
+	grid-template-columns: 2fr 1fr;
 }
-
-#about > div.right {
-	grid-template-areas: "image content content";
-	grid-template-columns: 33% repeat(2, 1fr);
+#about h2 {
+	grid-area: title;
+	color: var(--theme-green);
 }
-
-#about article {
+#about .executive-summary {
 	grid-area: content;
+	margin-bottom: 2rem;
 }
-
-#about figure {
-	grid-area: image;
+#about aside {
+	grid-area: aside;
+    background-color: var(--theme-purple);
+    padding: 1.8rem;
+    margin: 0 -4rem 0 2em;
 }
-
-@media screen and (max-width: 800px) {
-	#about > div, #about > div.right {
-		grid-template-areas: "content content content"
-							 "image image image";
-	}
+#about aside p {
+	font-size: 1rem;
 }
-@media screen and (max-width: 500px) {
-	#about {
-		width: 100%;
-	}
-}
-
-
-
-/**********  SERVICES  **********/
-
-#services {
-	width:90%;
-	/* margin: 0 auto; */
-	padding: 1.5em;
-	background-color: var(--theme-gray);
-}
-
-#services h2 {
-	font-size: 2.5em;
-	margin: 0 0 1em 0;
+#about aside h4 {
+	font-family: 'Source Code Pro';
+	font-size:2rem;
 	text-align: center;
 }
 
-#services > article figure {
-	float: left;
-	margin: 0 1em 1em 0;
-	width:33%;
-	max-width: 250px;
-}
+/*  JOB CARDS */
 
-#services > article::after {
-	content: '';
-	clear:both;
-	display: table;
-}
-
-
-#services li {
-	display:grid;
+#about .experience {
+	grid-area: experience;
+	display: grid;
 	grid-template-areas:
-		"header image"
-		"text image";
-	grid-template-columns: 1fr 25%;
-	justify-content: center;
-	align-items: center;
-	align-content: center;
-	margin: 0.5rem auto;
+		"exp exp exp exp"
+		". job job .";
+	grid-template-columns: 1% 1fr 1fr 1%;
 }
 
-#services li h3 {
-	grid-area: header;
+#about .experience > h3 {
+	grid-area: exp;
+	color: var(--theme-yellow);
+}
+#about .experience .job-cards {
+	grid-area: job;
+	display:flex;
+	flex-wrap: wrap;
 }
 
-#services li p {
-	grid-area: text;
+#about .experience .job-card {
+	flex: 1 1 520px;
+    display: grid;
+    grid-template-areas:
+        "job-title job-company"
+        "job-title job-date"
+        "job-desc job-desc"
+        "job-items job-items";
+    margin: 1rem 1%;
+	min-width: 550;
+    background-color: var(--theme-darkblue);
+    padding: 2rem;
+    box-shadow: -3px 3px 12px -8px var(--theme-yellow);
 }
 
-#services li figure {
-	grid-area: image;
+#about .experience .job-card h4 {
+	grid-area: job-company;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.25rem;
+	text-align: right;
+}
+#about .experience .job-card h5 {
+	grid-area: job-title;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.75rem;
+}
+#about .experience .job-card h6 {
+	grid-area: job-date;
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.75rem;
+	text-align: right;
+}
+#about .experience .job-card p {
+	grid-area: job-desc;
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: normal;
+	color: var(--theme-lightgray);
+}
+
+#about .experience .job-card ul {
+	grid-area: job-items;
+	margin: 1.5rem 0;
+}
+#about .experience .job-card ul li {
+	list-style: outside circle;
+	line-height: 1.2;
+	margin: 0.25rem 0;
+}
+
+
+@media screen and (max-width: 800px) {
+	#about {
+		grid-template-areas:
+			"title"
+			"content"
+			"aside"
+			"experience";
+		grid-template-columns: 100%;
+	}
+	#about aside {
+		margin: 0 auto;
+	}
+	
 }
 
 @media screen and (max-width: 600px) {
-	#services li {
+	#about {
+		width: 90%;
+	}
+
+	#about .experience .job-card {
 		grid-template-areas:
-			"header"
-			"image"
-			"text"
-		;
-		grid-template-columns: 100%;
+			"job-title job-title"
+			"job-company job-date"
+			"job-desc job-desc"
+			"job-items job-items";
+		margin: 1rem 0;
+		width: 96%;
+		padding: 1.5rem;
 	}
-	#services li figure {
-		width: 85%;
-		margin: 1em auto;
-	}
+	
 }
 
-@media screen and (max-width: 500px) {
-	#services {
-		width: 100%;
-		margin: 2rem 0;
+
+
+
+/************  SKILLS  **************/
+#skills {
+    background-color: var(--theme-blue);
+    width: 100%;
+    margin: 0;
+}
+
+#skills .content {
+	padding: 2rem 4rem;
+	background-color: var(--theme-darkgray);
+}
+
+#skills h2 {
+	color: var(--theme-blue);
+}
+
+#skills article p {
+	font-size: 1rem;
+}
+
+#skills .skill-set {
+	display: grid;
+    grid-template-areas: "label bar";
+	grid-template-columns: 150px 1fr;
+    align-content: stretch;
+    align-items: center;
+	margin: 0;
+}
+#skills .skill-set h3 {
+	grid-area: label;
+	display: inline-block;
+	font-size:1.1rem;
+}
+#skills .skill-set .exp-bar-container {
+	grid-area: bar;
+    position: relative;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+	font-size:0.75rem;
+	margin: 0 30px;
+}
+#skills .skill-set .exp-bar-container::before {
+	content: "0yr";
+	position: absolute;
+	top: 2px;
+	left: -30px;
+}
+#skills .skill-set .exp-bar-container::after {
+	content: "12yr";
+	position: absolute;
+	top: 2px;
+	right: -30px;
+}
+
+:root {
+	--data-years: 0;
+}
+#skills .skill-set .exp-bar {
+	position: relative;
+	width: calc((var(--data-years) /12) * 100%);
+	height: 100%;
+	border-radius: 15px;
+	background-color: var(--theme-green);
+}
+#skills .skill-set .exp-bar::after {
+	content: attr(data-years);
+	font-size: 0.75rem;
+	font-weight: bold;
+	position: absolute;
+	top: 2px;
+	color: var(--theme-darkgray);
+	width: 100%;
+	text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+	#skills .skill-set {
+		grid-template-areas:
+			"label"
+			"bar";
+		grid-template-columns: auto;
 	}
-	#services > article figure {
-		float: none;
-		width: 80%;
-		margin: 0 auto;
+
+	#skills .content {
+		width:100%;
 	}
 }
 
 /**********  QUOTE  **********/
+
 
 #quote {
 	width: 100%;
 	margin: 0;
 	padding: 3%;
 	position: relative;
-	background-image: url('images/lamp_quote.png');
+	background-image: url('images/quote-background.png');
 	background-size:cover;
 	background-repeat:no-repeat;
-	background-position: center -200px;
+	background-position: center;
 }
 #quote * {
 	position: relative;
 	z-index:2;
-	color: var(--theme-purple)
+	color: var(--theme-lightgray)
 }
 
 #quote .transparent-cover {
@@ -509,154 +670,107 @@ nav li:hover {
 	left:0px;
 	height: 100%;
 	width: 100%;
-	background-color: rgba(255,255,255,0.5);
+	background-color: rgba(0,0,0,0.8);
 	/* opacity: 0.5; */
 	z-index:unset;
 }
 
 #quote h3 {
-	font-size: 3em;
-	font-family: 'Caveat', cursive;
+	font-size: 2rem;
+	font-family: 'Source Code Pro', sans-serif;
 	margin: 0.5em;
 	text-align: center;
 }
 
 #quote h4 {
 	font-size: 1em;
-	font-family: 'Times New Roman', Times, serif;
+	font-family: 'Roboto', cursive;
 	text-align: right;
 	text-transform: uppercase;
 }
 
-@media screen and (max-width: 1400px) {
-	#quote {
-		background-position: center -100px;
-	}
-}
-@media screen and (max-width: 900px) {
-	#quote {
-		background-position: center 0px;
+@media screen and (max-width: 600px) {
+	#quote h3 {
+		font-size: 1.5rem;
 	}
 }
 
 
-/****************  STAFF  ******************/
 
-#staff {
-	width:100%;
-	margin-bottom: 0;
-	padding-bottom: 2.5rem;
-	background-color: var(--theme-gray);
-}
+/***********  CERTIFICATIONS  *********/
 
-#staff h2 {
-	font-size: 2.5em;
-	margin-bottom: 1em;
-}
 
-#staff .staff-index {
+#certifications {
 	width: 100%;
-	height: 550px;
-	margin: 0 auto;
-	position: relative;
+	margin: 0;
+	padding: 2rem;
 	display: grid;
-	grid-template-areas:
-		"nav-left cards nav-right";
-	grid-template-columns: 75px 1fr 75px;
-	justify-content: center;
-	overflow: hidden;
-	z-index: 4;
+	grid-template-areas: "content construction";
+	grid-template-columns: auto 400px;
 }
 
-.staff-index > * {
-	z-index: 6;
-}
-
-.staff-index .nav-left div, .staff-index .nav-right div {
-	width: 35px;
-	height: 35px;
-	border-left: 4px solid var(--theme-darkgray);
-	border-bottom: 4px solid var(--theme-darkgray);
-	cursor: pointer;
-	transform:scale(25%);
-}
-
-.staff-index .nav-left, .staff-index .nav-right {
-	width: 100%;
+#certifications .content {
+	grid-area: content;
+	padding: 4rem;
 	display: grid;
-	align-content: center;
+	align-content: space-between;
+	gap: 2rem;
 }
 
-.staff-index .nav-right {
-	background-image: linear-gradient(90deg, transparent 0%, var(--theme-gray) 60%);
-	justify-content:start;
-	grid-area: nav-right;
+#certifications h2 {
+	color: var(--theme-green);
 }
-.staff-index .nav-left {
-	background-image: linear-gradient(270deg, transparent 0%, var(--theme-gray) 60%);
-	justify-content:end;
-	grid-area: nav-left;
-}
-
-.staff-index .nav-left div {
-	transform:rotate(45deg);
-}
-.staff-index .nav-right div {
-	transform:rotate(-135deg);
+#certifications .construction {
+	grid-area: construction;
+	background-image: url('images/construction.jpg');
+	background-position: right bottom;
+	background-size: cover;
 }
 
-.staff-index .staff-gallery {
-	/* height: 32rem; */
-	grid-area:cards;
-	display: flex;
-	position:absolute;
-	left: 0px;
-	justify-content: start;
-	align-items:stretch;
-	align-content: start;
-	flex-direction: row;
-	overflow: hidden;
-	z-index: 5;
+#certifications figure {
+	height: 5rem;
 }
-
-.staff-gallery article {
-	flex: 0 0;
-	height: 100%;
-	margin: 0 1rem;
-	min-width: 22rem;
-	background-color: white;
-	padding: 1rem;
-}
-
-.staff-gallery article h3 {
-	text-align:center;
-}
-.staff-gallery article h3 span {
-	display: block;
-	font-size: 0.85em;
-	font-weight: 700;
-	font-family: monospace;
-}
-
-.staff-gallery figure {
-	height: 50%;
-	text-align: center;
-	margin: 1em;
-}
-
-.staff-gallery figure img {
+#certifications figure img {
 	height: 100%;
 	width: auto;
+	max-width: 100%;
 }
 
-@media screen and (max-width: 500px) {
-	#staff .staff-index {
-		grid-template-columns: 35px 1fr 35px;
+@media screen and (max-width: 600px) {
+	#certifications {
+		padding: 1rem;
+		grid-template-areas: "content" "construction";
+		grid-template-columns: auto;
 	}
-	.staff-index .nav-left div, .staff-index .nav-right div {
-		width: 25px;
-		height: 25px;
+	#certifications .content {
+		grid-area: content;
+		padding: 1rem;
 	}
+	#certifications .construction {
+		height: 225px;
+	}
+}
+
+
+
+/***********  PROJECTS  *************/
+#projects {
+	width: 100%;
+	margin: 0;
+	padding: 5rem;
+	background-image: url('images/skills-background.png');
+	background-size: cover;
+	height: 700px;
+}
+#projects .content {
+	width: 100%;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    padding: 1rem;
+    height: 100%;
+}
+
+#projects h2 {
+	color: var(--theme-yellow);
 }
 
 
@@ -664,18 +778,32 @@ nav li:hover {
 
 footer {
 	display: grid;
-    justify-content: center;
     grid-template-areas:
-        "sitemap contact"
-        "copyright copyright";
-    grid-template-columns: 50% 50%;
+		"sitemap contact ."
+		"copyright copyright copyright";
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-content: center;
+	justify-items: center;
+	align-items: center;
+	gap: 2rem 0;
     color: var(--theme-gray);
     background-color: var(--theme-darkgray);
+	border-top: 1px solid var(--theme-purple);
 }
 
 footer * {
 	color: inherit;
-	padding: 2%;
+	padding: 0.25rem;
+}
+
+footer p {
+	line-height:normal;
+	letter-spacing: normal;
+	margin-top: 0;
+}
+
+footer figure {
+	width: 50%;
 }
 
 #sitemap {
@@ -697,6 +825,18 @@ footer * {
 }
 
 
+@media screen and (max-width: 600px) {
+	footer {
+		grid-template-areas:
+			"contact contact"
+			"sitemap ."
+			"copyright copyright";
+		grid-template-columns: 1fr 1fr;
+	}
 
+	footer figure {
+		width: 90%;
+	}
+}
 
 

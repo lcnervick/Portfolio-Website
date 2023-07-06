@@ -10,23 +10,25 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     
-    <!-- <script src="https://kit.fontawesome.com/9de295ac74.js" crossorigin="anonymous"></script> -->
+    <script src="https://kit.fontawesome.com/9de295ac74.js" crossorigin="anonymous"></script>
+    <script type="module">
+      import { Octokit, App } from "https://esm.sh/octokit";
+      </script>
   </head>
 
   <body>
     <header>
       <div class="logo">
         <img src="images/leif-logo.png" />
-        <!-- <img src="images/logo_mobile.png" class="mobile" /> -->
       </div>
       <nav>
         <img src="images/mobile-menu.png" class="mobile open" />
         <img src="images/close-menu.png" class="mobile close" />
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
+          <li><a href="#skills">Skills</a></li>
           <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -34,7 +36,7 @@
 
     <main>
       <section id="hero">
-        <div class="content">
+        <div class="card content">
           <figure><img src="images/profile-pic.png" alt="profile photo" /></figure>
           <h1>Leif Nervick</h1>
           <!-- <h3>Owner - Synaptic Software</h3> -->
@@ -42,147 +44,169 @@
           <div class="contact-info">
             <p><span class="material-icons">phone</span> <a href="tel:3039122225">(303) 912-2225</a></p>
             <p><span class="material-icons">email</span> <a href="mailto: leif@synapticsoftware.net">leif@synapticsoftware.net</a></p>
+            <p> <span class="material-icons fa-brands fa-linkedin" style="color: hsl(0,0%,90%); vertical-align: baseline;"></span> <a href="https://linkedIn.com/in/leif-nervick" target="_blank">LinkedIn Profile</a></p>
+            <p> <span class="material-icons fa-brands fa-github" style="color: hsl(0,0%,90%); vertical-align: baseline;"></span> <a href="https://github.com/lcnervick" target="_blank">GitHub Repository</a></p>
           </div>
-          <div class="synaptic-logo"><a href="http://www.synapticsoftware.net"><img src="images/synaptic-software-white.png"></a></div>
+          <div class="synaptic-logo"><a href="http://www.synapticsoftware.net" target="_blank"><img src="images/synaptic-software-white.png"></a></div>
           <a href="#contact" class="button"><button>Contact Me</button></a>
         </div>
       </section>
 
+
       <section id="about">
-        <div class="left">
-          <article class="mission">
-            <h2>Our Mission as Optometrists</h2>
-            <p>At Optic Nervick, we understand the importance of your sight and strive every day to deliver the best possible vision to our patients through caring doctors, thorough examinations and thoughtful treatment solutions. Weather you're after a new glasses or contact lens prescription, getting your pressures checked, or needing a Lasik consultation, our mission is to take care of our patients with the utmost care and understanding.</p>
+        <h2>[ About me ~] $</h2>
+        <article class="executive-summary">
+          <p>I am a motivated self-taught problem-solver that enjoys taking challenging projects and turning them into something beautiful, simple and useful.</p>
+          <p>With an extensive background in various types of coding on many different platforms, and in-depth experience in every aspect of the Audio/Video and IT industry, I am uniquely positioned to take on a myriad of different types of projects and can learn new concepts and languages quickly and easily.</p>
+        </article>
+        <aside>
+          <h4>Did you know</h4>
+          <p>Leif was home-schooled for seven years in elementary and middle school, which allowed him to supplement his school work with additional computer programming lessons.</p>
+          <p>He started programming C and HTML at the age of 12, and procured his first job designing web-sites in 1996 at the age of 14.</p>
+        </aside>
+        <article class="experience">
+          <h3>&lt;Experience max-results="2" /&gt;</h3>
+          <div class="job-cards">
+            <div class="job-card">
+              <h4>Synaptic Software LLC</h4>
+              <h5>Owner - Developer</h5>
+              <h6>May 2018 - Present</h6>
+              <p>Created from scratch a full-featured Field Service Management Application which includes integrations with Google, QuickBooks, Twilio, UPS and various sales tax APIs. Includes interactive drag-and-drop quote builder, print-template designer, proprietary task manager, payment/invoice processing and integrations, scheduling systems, smart-messaging systems, user permissions, time-sheet reporting, sales tax calculating and reporting, a self-reporting error management support ticket system and an easy on-boarding system for new customers.</p>
+              <ul>
+                <li>Developed primarily with HTML, CSS, JavaScript/jQuery, MySQL and PHP on a self-hosted Apache 2.4 framework.</li>
+                <li>Utilized everything from AJAX to webhook/websocket and Cron jobs to get processes handled most efficiently.</li>
+                <li>Successfully implemented in several companies that are currently using it to help run their entire business.</li>
+              </ul>
+            </div>
+            <div class="job-card">
+              <h4>Mile High Audio Video</h4>
+              <h5>Incorporator/CFO/CTO</h5>
+              <h6>Jan 2017 - May 2018<br>July 2021 - Aug 2022</h6>
+              <p>Created and implemented an employee-owned audio/video/integration business. Ran technical and financial operations and created specialty Interface designs for larger, more complicated projects.</p>
+              <ul>
+                <li>Specializing in the system control aspect of the low-voltage industry.</li>
+                <li>A/V and Control System sales, design, installation, programming, and service.</li>
+                <li>Operations, Sales Tax Compliance.</li>
+                <li>Responsible for UI development on commercial projects needing multiple zones of audio/video controlled from a single device.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+
+      <section id="skills">
+        <div class="content">
+          <h2>[ Skills ~] $</h2>
+          <article>
+            <!-- <figure><img src="" alt="" /></figure> -->
+            <p>This is an abridged list of the skills I've gained in this journey so far. In most of my professional history, I have used these skills in a small way to develop small modules to help various parts of my audio/video businesses. The last 5 years have been spent creating a full-featured field service management app that is now being used by several businesses to help run and automate their entire operation. This app has taught me a lot and pointed me towards things like GraphQL and React that would help make it a better product. I am always very excited to learn ind implement new languages and patterns.<br><br></p>
           </article>
-          <figure><img src="images/forest_glasses.png" alt="blurry forest made clear by glasses" /></figure>
-        </div>
-        <div class="right">
-          <article class="optometry">
-            <h2>What is Optometry?</h2>
-            <p>Optometry is the medical field involving everything that has to do with your eyes and vision. This includes examination, diagnosis and treatment of the eyes and surrounding structures, and the treatment of vision problems. Common areas of practice include correction and/or treatment for low-vision, near-sightedness and far-sightedness, glaucoma, cataracts, retinal disorders, myopia, color-blindness and systemic diseases.</p>
-          </article>
-          <figure><img src="images/eyeball_display.png" alt="model of an eyeball" /></figure>
-        </div>
-        <div class="left">
-          <article class="optometrist">
-            <h2>What is an Optometrist?</h2>
-            <p>Doctors of Optometry (ODs) are the independent primary health care professionals for the eye. Optometrists examine, diagnose, treat, and manage diseases, injuries, and disorders of the visual system, the eye, and associated structures as well as identify related systemic conditions affecting the eye (American Optometric Association [AOA]).
-            <br><em>Note: Optometrists should not be confused with ophthalmologists or dispensing opticians. An ophthalmologist is a physician who also performs eye surgery as well as diagnosing and treating eye conditions. Dispensing opticians fit eyeglasses and contact lenses, following prescriptions written by ophthalmologists or optometrists.</em></p>
-          </article>
-          <figure><img src="images/optometrist.png" alt="optometrist using slit-lamp" /></figure>
+          <ul>
+            <li class="skill-set">
+              <h3>HTML 5</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="12" style="--data-years:12;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>CSS</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="12" style="--data-years:12;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>JavaScript</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="12" style="--data-years:12;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>jQuery</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="7" style="--data-years:7;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>PHP</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="12" style="--data-years:12;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>SQL</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="6" style="--data-years:6;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>GraphQL</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="1" style="--data-years:1;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>XML</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="8" style="--data-years:8;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>Apache 2.4</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="5" style="--data-years:5;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>Git / GitHub</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="1" style="--data-years:1;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>ReactJS</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="1" style="--data-years:1;"></div></div>
+            </li>
+            <li class="skill-set">
+              <h3>Adobe Graphic Design</h3>
+              <div class="exp-bar-container"><div class="exp-bar" data-years="12" style="--data-years:12;"></div></div>
+            </li>
+          </ul>
         </div>
       </section>
+
+
 
       <section id="quote">
         <div class="transparent-cover"></div>
-        <h3>"The eye is the lamp of the body - if your eyes are healthy, your whole body will be full of light."</h3>
-        <h4>Matthew 6:22</h4>
+        <h3>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</h3>
+        <h4>Martin Fowler</h4>
       </section>
 
-      <section id="services">
-        <h2>Optometry Services Offered</h2>
-        <article>
-          <figure><img src="images/eye_closeup.png" alt="eyeball close up" /></figure>
-          <p>
-            Visiting an optometrist on a regular basis is in everyone's best interest. Eye health is something that gets overlooked and neglected much too often. If left undiscovered or ignored, eye conditions can quickly become very serious and can affect the entire body's health.
-            <br><br>
-            It is highly recommended to undergo regular eye examinations as this is one of the main tools our optometrists use to helps our patients care for their eyesight. Keep reading to find out about the other services that we offer at our optometry clinic.
-          </p>
-        </article>
-        <ul>
-          <li>
-            <h3>Comprehensive Eye Examinations</h3>
-            <p>Thorough eye examinations to assess visual acuity, refractive errors (such as nearsightedness, farsightedness, and astigmatism), eye coordination, and overall eye health. We may also evaluate the patient's medical history and discuss any concerns or symptoms.</p>
-            <figure><img src="images/eye-exam.png" alt="eye exam" /></figure>
-          </li>
-          <li>
-            <h3>Prescription of Corrective Lenses</h3>
-            <p>Prescribe and fit corrective lenses, such as eyeglasses or contact lenses, to address refractive errors and improve visual acuity. We will determine the appropriate lens power and type based on the individual's needs and preferences.</p>
-            <figure><img src="images/corrective_lenses.png" alt="elderly man getting fitted for corrective lenses" /></figure>
-          </li>
-          <li>
-            <h3>Contact Lens Fitting and Evaluation</h3>
-            <p>Fitting contact lenses for patients who prefer them over traditional eyeglasses. We will assess the patient's eye health, measure the curvature of the cornea, and recommend suitable contact lens options. We will also provide instructions on lens care and hygiene.</p>
-            <figure><img src="images/contact_lenses.png" alt="girl putting in a contact lens" /></figure>
-          </li>
-          <li>
-            <h3>Diagnosis and Management of Eye Conditions</h3>
-            <p>Diagnose and manage various eye conditions, including but not limited to, cataracts, glaucoma, diabetic retinopathy, macular degeneration, dry eye syndrome, and conjunctivitis (pink eye). We may prescribe medications, provide treatment plans, or refer patients to ophthalmologists for specialized care if necessary.</p>
-            <figure><img src="images/diagnosis.png" alt="diagnosis using slit lamp" /></figure>
-          </li>
-          <li>
-            <h3>Vision Therapy</h3>
-            <p>Vision therapy services for patients with certain visual disorders or conditions, such as amblyopia (lazy eye) or strabismus (crossed eyes). Vision therapy involves a series of exercises and techniques designed to improve visual function and coordination.</p>
-            <figure><img src="images/vision_therapy.png" alt="child going through vision therapy" /></figure>
-          </li>
-          <li>
-            <h3>Pre- and Post-operative Care</h3>
-            <p>We work closely with ophthalmologists and provide pre- and post-operative care for patients undergoing eye surgeries, such as LASIK or cataract surgery. We monitor the patient's progress, manage any complications, and ensure optimal visual outcomes.</p>
-            <figure><img src="images/eye_surgery.png" alt="eye under laser surgery machine" /></figure>
-          </li>
-          <li>
-            <h3>Pediatric Eye Care</h3>
-            <p>Eye care services for children. We conduct comprehensive eye exams to detect and manage vision problems, amblyopia, or other pediatric eye conditions. We may also collaborate with pediatricians and educators to address vision-related issues that can impact a child's learning and development.</p>
-            <figure><img src="images/pediatric_care.png" alt="child with crooked glasses on" /></figure>
-          </li>
-        </ul>
+
+
+      <section id="certifications">
+        <div class="content">
+          <h2>[ Certifications ~] $</h2>
+          <figure><img src="images/codecademy.png" /></figure>
+          <p>I am currently working on a Full-Stack Development certification through CodeCademy. I am testing out of most of it and should be able to receive my certification in 1 month instead of six. This should be complete by the first week of August 2023.</p>
+        </div>
+        <div class="construction"></div>
       </section>
 
-      <section id="staff">
-        <h2 class="center">Our Expert Optometry Staff</h2>
-        <div class="staff-index">
-          <div class="nav-left"><div></div></div>
-          <div class="staff-gallery">
-            <article>
-              <h3>Dr. Kayla Nervick<span>Optometrist</span></h3>
-              <figure><img src="images/profile.jpg" /></figure>
-              <p>Dr. Kayla Nervick, OD., graduated as part of the inaugural class of the Arizona College of Optometry at Midwestern University. Over the course of her career, she has gained much experience treating a wide variety of vision maladies and disease states in the very young to the elderly. As an extern working at the Indian Health Services Hospital in Parker, Arizona, Dr. Nervick worked with patients in all stages of life. That experience allowed her to acquire valuable experience with ocular diseases such as diabetic retinopathy, cataracts, glaucoma, keratoconus, severe dry eyes and more. Through the course of her career, she has found a great interest in the treatment of patients with irregular corneas due to keratoconus, corneal transplants and high amounts of astigmatism with specialty contact lenses. In all aspects of her practice, Dr. Nervick has always put her patients first and is always looking for ways to expand her knowledge in continued patient care practices.<br><br>
-                Dr. Nervick specializes in several valuable modes of practice. Her experience with conventional soft and rigid gas permeable contact lenses allows her to fit a wide variety of patients into the right contact lenses with a high success rate. Additionally, an externship in a vision therapy practice and four years of working almost exclusively with children allowed her the chance to excel in well-child check-ups and assessments of children with various vision conditions. Most importantly, Dr. Nervick strives to take the extra steps to educate her patients about their eyes for treatment and preventative measures. Throughout her career, she has enjoyed participating in public health fairs, children’s vision screenings, and other community education efforts. On her time off, Dr. Nervick likes party planning, crafts, and spending time with her family.</p>
-            </article>
-            <article>
-              <h3>Dr. Kayla Nervick<span>Optometrist</span></h3>
-              <figure><img src="images/profile.jpg" /></figure>
-              <p>Dr. Kayla Nervick, OD., graduated as part of the inaugural class of the Arizona College of Optometry at Midwestern University. Over the course of her career, she has gained much experience treating a wide variety of vision maladies and disease states in the very young to the elderly. As an extern working at the Indian Health Services Hospital in Parker, Arizona, Dr. Nervick worked with patients in all stages of life. That experience allowed her to acquire valuable experience with ocular diseases such as diabetic retinopathy, cataracts, glaucoma, keratoconus, severe dry eyes and more. Through the course of her career, she has found a great interest in the treatment of patients with irregular corneas due to keratoconus, corneal transplants and high amounts of astigmatism with specialty contact lenses. In all aspects of her practice, Dr. Nervick has always put her patients first and is always looking for ways to expand her knowledge in continued patient care practices.<br><br>
-                Dr. Nervick specializes in several valuable modes of practice. Her experience with conventional soft and rigid gas permeable contact lenses allows her to fit a wide variety of patients into the right contact lenses with a high success rate. Additionally, an externship in a vision therapy practice and four years of working almost exclusively with children allowed her the chance to excel in well-child check-ups and assessments of children with various vision conditions. Most importantly, Dr. Nervick strives to take the extra steps to educate her patients about their eyes for treatment and preventative measures. Throughout her career, she has enjoyed participating in public health fairs, children’s vision screenings, and other community education efforts. On her time off, Dr. Nervick likes party planning, crafts, and spending time with her family.</p>
-            </article>
-            <article>
-              <h3>Dr. Kayla Nervick<span>Optometrist</span></h3>
-              <figure><img src="images/profile.jpg" /></figure>
-              <p>Dr. Kayla Nervick, OD., graduated as part of the inaugural class of the Arizona College of Optometry at Midwestern University. Over the course of her career, she has gained much experience treating a wide variety of vision maladies and disease states in the very young to the elderly. As an extern working at the Indian Health Services Hospital in Parker, Arizona, Dr. Nervick worked with patients in all stages of life. That experience allowed her to acquire valuable experience with ocular diseases such as diabetic retinopathy, cataracts, glaucoma, keratoconus, severe dry eyes and more. Through the course of her career, she has found a great interest in the treatment of patients with irregular corneas due to keratoconus, corneal transplants and high amounts of astigmatism with specialty contact lenses. In all aspects of her practice, Dr. Nervick has always put her patients first and is always looking for ways to expand her knowledge in continued patient care practices.<br><br>
-                Dr. Nervick specializes in several valuable modes of practice. Her experience with conventional soft and rigid gas permeable contact lenses allows her to fit a wide variety of patients into the right contact lenses with a high success rate. Additionally, an externship in a vision therapy practice and four years of working almost exclusively with children allowed her the chance to excel in well-child check-ups and assessments of children with various vision conditions. Most importantly, Dr. Nervick strives to take the extra steps to educate her patients about their eyes for treatment and preventative measures. Throughout her career, she has enjoyed participating in public health fairs, children’s vision screenings, and other community education efforts. On her time off, Dr. Nervick likes party planning, crafts, and spending time with her family.</p>
-            </article>
-            <article>
-              <h3>Dr. Kayla Nervick<span>Optometrist</span></h3>
-              <figure><img src="images/profile.jpg" /></figure>
-              <p>Dr. Kayla Nervick, OD., graduated as part of the inaugural class of the Arizona College of Optometry at Midwestern University. Over the course of her career, she has gained much experience treating a wide variety of vision maladies and disease states in the very young to the elderly. As an extern working at the Indian Health Services Hospital in Parker, Arizona, Dr. Nervick worked with patients in all stages of life. That experience allowed her to acquire valuable experience with ocular diseases such as diabetic retinopathy, cataracts, glaucoma, keratoconus, severe dry eyes and more. Through the course of her career, she has found a great interest in the treatment of patients with irregular corneas due to keratoconus, corneal transplants and high amounts of astigmatism with specialty contact lenses. In all aspects of her practice, Dr. Nervick has always put her patients first and is always looking for ways to expand her knowledge in continued patient care practices.<br><br>
-                Dr. Nervick specializes in several valuable modes of practice. Her experience with conventional soft and rigid gas permeable contact lenses allows her to fit a wide variety of patients into the right contact lenses with a high success rate. Additionally, an externship in a vision therapy practice and four years of working almost exclusively with children allowed her the chance to excel in well-child check-ups and assessments of children with various vision conditions. Most importantly, Dr. Nervick strives to take the extra steps to educate her patients about their eyes for treatment and preventative measures. Throughout her career, she has enjoyed participating in public health fairs, children’s vision screenings, and other community education efforts. On her time off, Dr. Nervick likes party planning, crafts, and spending time with her family.</p>
-            </article>
-          </div>
-          <div class="nav-right"><div></div></div>
+
+
+      <section id="projects">
+        <div class="content">
+          <h2>[ Projects ~] $</h2>
         </div>
       </section>
+
 
 
     </main>
 
     <footer>
+      <figure><img src="images/leif-logo.png" /></figure>
       <div id="contact-info">
         <h3>Contact Info</h3>
-        <p>Address:<br>12585 Eliot St.<br>Broomfield, CO 80020</p>
-        <p>Phone:<br>(888) 912-5060</p>
+        <p><span class="material-icons">phone</span> <a href="tel:3039122225">(303) 912-2225</a></p>
+        <p><span class="material-icons">email</span> <a href="mailto: leif@synapticsoftware.net">leif@synapticsoftware.net</a></p>
+        <p> <span class="material-icons fa-brands fa-linkedin" style="color: hsl(0,0%,90%); vertical-align: baseline;"></span> <a href="https://linkedIn.com/in/leif-nervick" target="_blank">LinkedIn Profile</a></p>
+        <p> <span class="material-icons fa-brands fa-github" style="color: hsl(0,0%,90%); vertical-align: baseline;"></span> <a href="https://github.com/lcnervick" target="_blank">GitHub Repository</a></p>
       </div>
       <div id="sitemap">
         <h3>Sitemap</h3>
         <ul>
           <li><a href="#about">About</a></li>
-          <li><a href="#staff">Staff</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#book">Book</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </div>
       <div id="copyright">
-        &copy; Copyright 2023, Central Nervick Systems, LLC
+        &copy; Copyright 2023, Central Nervick Systems LLC
       </div>
     </footer>
   </body>
