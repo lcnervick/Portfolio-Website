@@ -17,7 +17,7 @@
 
       // GET REPO LIST
       import { Octokit, App } from "https://esm.sh/octokit";
-      const octokit = new Octokit({auth: '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'});
+      const octokit = new Octokit({auth: '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'});
       const getRepoList = (pre, post) => {
         return new Promise((success, fail) => {
           const repos = octokit.request('GET /users/lcnervick/repos', {
@@ -65,7 +65,7 @@
             table.appendChild(tHead).className = 'header';
             container.appendChild(table);
 
-            tHead.innerHTML = `<div>Repo Name<br><span style="font-size:0.85rem;">(primary lang)</span></div><div>Description</div>`;
+            tHead.innerHTML = `<div>My Public Repositories</div>`;
 
             if(response.length) {
               for(const repo of response) {
@@ -74,10 +74,16 @@
                 const newRow = document.createElement('li');
                 const repoName = document.createElement('div');
                 const repoDesc = document.createElement('div');
-                const repoLang = document.createElement('div');             
+                const icons = document.createElement('div');
+                const repoLink = document.createElement('div');             
+                const runLink = document.createElement('div');             
                 
-                newRow.appendChild(repoName).innerHTML = `<a href="${html_url}" target="_blank">${name}</a><br><span style="font-size:0.85rem;">(${language})</span>`;
+                newRow.appendChild(repoName).innerHTML = `<h3>${name}</h3>`;
                 newRow.appendChild(repoDesc).innerHTML = description;
+                
+                newRow.appendChild(icons).className = "icons";
+                icons.innerHTML += `<a href="${html_url}" target="_blank"><img src="images/github-icon.png"></a>`;
+                icons.innerHTML += `<a href="./projects/${html_url.replace("https://github.com/lcnervick/","")}" target="_blank"><img src="images/run.png"></a>`;
 
                 table.appendChild(newRow);
               }

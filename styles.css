@@ -874,32 +874,40 @@ nav li:hover {
 	margin: 1.5rem;
 }
 #gitHubRepo li {
-	display: grid;
+	display: flex;
 	border-bottom: 1px solid var(--theme-blue);
-	grid-template-columns: auto auto;
 	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
 }
 #gitHubRepo li.header {
 	font-size: 1.2rem;
 	font-weight: normal;
 	font-family: 'Source Code Pro', sans-serif;
-}
-#gitHubRepo li a {
-	text-decoration: underline;
-	font-weight: normal;
+	grid-template-columns: auto;
+	justify-content: center;
 }
 #gitHubRepo li > div {
-	padding: 0.5rem 2rem;
+	padding: 0.5rem;
 	line-height: 1.5;
 }
 #gitHubRepo li > div:first-of-type {
-	padding-left: 0;
-}
-#gitHubRepo li > div:last-of-type {
-	padding-right: 0;
-	text-align:right;
+	flex: 1 1 300px;
 }
 
+#gitHubRepo .icons {
+	flex: 1 1 auto;
+	text-align:right;
+}
+#gitHubRepo .icons a {
+	display: inline-block;
+	width: 30px;
+	margin: 0px 10px;
+}
+#gitHubRepo .icons img {
+	width: 100%;
+}
 
 @media screen and (max-width: 1100px) {
 	#projects {
@@ -932,13 +940,6 @@ nav li:hover {
 	#gitHubRepo ul {
 		padding: 1rem;
 		margin: 1.5rem 0.25rem;
-	}
-	#gitHubRepo li {
-		grid-template-columns: auto;
-		justify-content: normal;
-	}
-	#gitHubRepo li:first-of-type {
-		display: none;
 	}
 }
 
