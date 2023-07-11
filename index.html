@@ -11,9 +11,90 @@
     <link href="styles.css" rel="stylesheet">
     
     <script src="https://kit.fontawesome.com/9de295ac74.js" crossorigin="anonymous"></script>
-    <script type="module">
+    
+    <script type="module"> // Octokit module for GitHub repo access
+
+
+      // GET REPO LIST
       import { Octokit, App } from "https://esm.sh/octokit";
-      </script>
+      const octokit = new Octokit({auth: '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'});
+      const getRepoList = (pre, post) => {
+        return new Promise((success, fail) => {
+          const repos = octokit.request('GET /users/lcnervick/repos', {
+            headers: {
+              'X-GitHub-Api-Version': '2022-11-28'
+            }
+          })
+          .then((response) => {  success(response.data); })
+          .catch((err) => { fail(err); });
+        });
+      };
+
+      // TOGGLE MOBILE MENU
+      const toggleMobileNav = e => {
+        e.target.parentNode.classList.toggle('active');
+      };
+
+      // SWITCH TO LIGHT/DARK MODE
+      const switchDarkMode = e => {
+        e.target.classList.toggle('active');
+        const lightMode = e.target.classList.contains('active');
+        document.documentElement.style.setProperty('--theme-darkgray', lightMode ? 'hsl(0, 0%, 90%)' : 'hsl(0, 0%, 20%)');
+        document.documentElement.style.setProperty('--theme-lightgray', lightMode ? 'hsl(0, 0%, 20%)' : 'hsl(0, 0%, 90%)');
+        document.documentElement.style.setProperty('--theme-yellow', lightMode ? 'hsl(0, 65%, 58%)' : 'hsl(61, 96%, 74%)');
+        document.documentElement.style.setProperty('--theme-darkgray-transparent', lightMode ? 'hsla(0, 0%, 90%, 0.9)' : 'hsl(0, 0%, 20%, 0.9)');
+        document.documentElement.style.setProperty('--theme-lightgray-transparent', lightMode ? 'hsla(0, 0%, 20%, 0.9)' : 'hsl(0, 0%, 90%, 0.9)');
+        for(const img of document.querySelectorAll('img')) {
+          if(img.src.match(lightMode ? /-dark/ : /-light/)) {
+            console.log(img.src);
+            img.src = img.src.replace(lightMode ? /-dark/ : /-light/, lightMode ? "-light" : "-dark");
+          }
+        }
+      }
+
+      
+      window.onload = function() {
+
+        // GET AND DISPLAY REPOSITORY LIST
+        getRepoList()
+          .then(response => {
+            // console.log('response', response);
+            const container = document.getElementById("gitHubRepo");
+            const table = document.createElement('ul');
+            const tHead = document.createElement('li');
+            table.appendChild(tHead).className = 'header';
+            container.appendChild(table);
+
+            tHead.innerHTML = `<div>Repo Name<br><span style="font-size:0.85rem;">(primary lang)</span></div><div>Description</div>`;
+
+            if(response.length) {
+              for(const repo of response) {
+                const { description, id, language, name, html_url } = repo;
+                
+                const newRow = document.createElement('li');
+                const repoName = document.createElement('div');
+                const repoDesc = document.createElement('div');
+                const repoLang = document.createElement('div');             
+                
+                newRow.appendChild(repoName).innerHTML = `<a href="${html_url}" target="_blank">${name}</a><br><span style="font-size:0.85rem;">(${language})</span>`;
+                newRow.appendChild(repoDesc).innerHTML = description;
+
+                table.appendChild(newRow);
+              }
+            }
+          })
+          .catch((err) => { console.error('ERROR', err); });
+
+        // NAVIGATION MENU
+        for(const button of document.querySelectorAll("nav .mobile")) {
+          button.addEventListener('click', toggleMobileNav);
+        }
+
+        // LIGHT MODE BUTTON
+        document.getElementById('lightDarkModeButton').addEventListener('click', switchDarkMode)
+      }
+    </script>
+
   </head>
 
   <body>
@@ -21,6 +102,7 @@
       <div class="logo">
         <img src="images/leif-logo.png" />
       </div>
+      <div id="lightDarkModeButton"></div>
       <nav>
         <img src="images/mobile-menu.png" class="mobile open" />
         <img src="images/close-menu.png" class="mobile close" />
@@ -44,10 +126,10 @@
           <div class="contact-info">
             <p><span class="material-icons">phone</span> <a href="tel:3039122225">(303) 912-2225</a></p>
             <p><span class="material-icons">email</span> <a href="mailto: leif@synapticsoftware.net">leif@synapticsoftware.net</a></p>
-            <p> <span class="material-icons fa-brands fa-linkedin" style="color: hsl(0,0%,90%); vertical-align: baseline;"></span> <a href="https://linkedIn.com/in/leif-nervick" target="_blank">LinkedIn Profile</a></p>
-            <p> <span class="material-icons fa-brands fa-github" style="color: hsl(0,0%,90%); vertical-align: baseline;"></span> <a href="https://github.com/lcnervick" target="_blank">GitHub Repository</a></p>
+            <p> <span class="material-icons fa-brands fa-linkedin" style="color: var(--theme-lightgray); vertical-align: baseline;"></span> <a href="https://linkedIn.com/in/leif-nervick" target="_blank">LinkedIn Profile</a></p>
+            <p> <span class="material-icons fa-brands fa-github" style="color: var(--theme-lightgray); vertical-align: baseline;"></span> <a href="https://github.com/lcnervick" target="_blank">GitHub Repository</a></p>
           </div>
-          <div class="synaptic-logo"><a href="http://www.synapticsoftware.net" target="_blank"><img src="images/synaptic-software-white.png"></a></div>
+          <div class="synaptic-logo"><a href="http://www.synapticsoftware.net" target="_blank"><img src="images/synaptic-software-dark.png"></a></div>
           <a href="#contact" class="button"><button>Contact Me</button></a>
         </div>
       </section>
@@ -156,7 +238,6 @@
       </section>
 
 
-
       <section id="quote">
         <div class="transparent-cover"></div>
         <h3>"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</h3>
@@ -164,21 +245,44 @@
       </section>
 
 
-
       <section id="certifications">
         <div class="content">
           <h2>[ Certifications ~] $</h2>
-          <figure><img src="images/codecademy.png" /></figure>
+          <figure><img src="images/codecademy-dark.png" /></figure>
           <p>I am currently working on a Full-Stack Development certification through CodeCademy. I am testing out of most of it and should be able to receive my certification in 1 month instead of six. This should be complete by the first week of August 2023.</p>
         </div>
         <div class="construction"></div>
       </section>
 
 
-
       <section id="projects">
         <div class="content">
           <h2>[ Projects ~] $</h2>
+          <ul class="project-list">
+
+            <li class="project">
+              <figure><a href="https://www.servicetoolz.com" target="_blank"><img src="images/service-toolz-dark.png" /></a></figure>
+              <aside>
+                <p>Service Toolz is the project I have been working on since 2018 and have learned most of what I know through the development. It is a subscription-based SAAS application. For more information, please contact me for a demo to see what it can do (which is like, everything!).<br />
+                <a href="https://www.servicetoolz.com" target="_blank">Visit the Website</a></p>
+              </aside>
+              <article>
+                <p>Service Toolz is a simple cloud-based business management app for trades and field service businesses of all sizes. Its primary focuses include customer management, custom quoting, work order management with checklists, scheduling, inventory management, invoicing, payments and time tracking. Also track inquiries, gratuities, commissions, profit/loss, timesheets and more with intuitive live reports.</p>
+                <p>A real-time automated task list allows users to stay coordinated by assigning and delegating tasks.</p>
+                <p>By integrating with QuickBooks Online, Twilio, and Google Calendar, it can also offer instant customer notifications through text messages, automated invoicing and payment processing, and coordinated dispatching.</p>
+              </article>
+            </li>
+
+            <li class="project">
+              <figure><a href="https://github.com/lcnervick" target="_blank"><img src="images/github-logo-dark.png" /></a></figure>
+              <aside>
+                <p>Since releasing Service Toolz, it became more and more apparent that I would need version control to help manage updates, features, bug fixes, etc.. This is my repository that includes small experimental projects, various training projects, and other open-source repositories that will hopefully be helpful one day.<br />
+                <a href="https://github.com/lcnervick"  target="_blank">Visit my Repo</a></p>
+              </aside>
+              <article id="gitHubRepo"></article>
+            </li>
+
+          </ul>
         </div>
       </section>
 
