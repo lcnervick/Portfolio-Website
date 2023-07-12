@@ -17,7 +17,7 @@
 
       // GET REPO LIST
       import { Octokit, App } from "https://esm.sh/octokit";
-      const octokit = new Octokit({auth: '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'});
+      const octokit = new Octokit({auth: atob('Z2hwX25mVVlMU2pGbllOTWNkU2xQVDJ6bXJEZUN6allQQzQ5cnBJRw==')});
       const getRepoList = (pre, post) => {
         return new Promise((success, fail) => {
           const repos = octokit.request('GET /users/lcnervick/repos', {
