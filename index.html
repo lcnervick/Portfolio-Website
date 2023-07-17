@@ -84,7 +84,7 @@
                 
                 newRow.appendChild(icons).className = "icons";
                 icons.innerHTML += `<a href="${html_url}" target="_blank"><img src="images/github-icon.png"></a>`;
-                icons.innerHTML += `<a href="${homepage ?? `./projects/${html_url.replace("https://github.com/lcnervick/","")}`}" target="_blank"><img src="images/run.png"></a>`;
+                icons.innerHTML += `<a href="${homepage ? homepage : ('./projects/'+html_url.replace("https://github.com/lcnervick/",""))}" target="_blank"><img src="images/run.png"></a>`;
 
                 table.appendChild(newRow);
               }
