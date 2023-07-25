@@ -16,18 +16,12 @@
 
 
       // GET REPO LIST
-      import { Octokit, App } from "https://esm.sh/octokit";
-      const octokit = new Octokit({auth: atob('Z2hwX25mVVlMU2pGbllOTWNkU2xQVDJ6bXJEZUN6allQQzQ5cnBJRw==')});
-      const getRepoList = (pre, post) => {
-        return new Promise((success, fail) => {
-          const repos = octokit.request('GET /users/lcnervick/repos', {
-            headers: {
-              'X-GitHub-Api-Version': '2022-11-28'
-            }
-          })
-          .then((response) => {  success(response.data); })
-          .catch((err) => { fail(err); });
-        });
+      const getRepoList = async () => {
+        const response = await fetch('git.php');
+        if(response.ok) {
+          const json = await response.json();
+          return json.data;
+        } else throw new Error("Could not get Repo List");
       };
 
       // TOGGLE MOBILE MENU
@@ -56,41 +50,39 @@
       window.onload = function() {
 
         // GET AND DISPLAY REPOSITORY LIST
-        getRepoList()
-          .then(response => {
-            // console.log('response', response);
-            const container = document.getElementById("gitHubRepo");
-            const table = document.createElement('ul');
-            const tHead = document.createElement('li');
-            table.appendChild(tHead).className = 'header';
-            container.appendChild(table);
+        getRepoList().then((response) => {
+          console.log('response', response);
+          const container = document.getElementById("gitHubRepo");
+          const table = document.createElement('ul');
+          const tHead = document.createElement('li');
+          table.appendChild(tHead).className = 'header';
+          container.appendChild(table);
 
-            tHead.innerHTML = `<div>My Public Repositories</div>`;
+          tHead.innerHTML = `<div>My Public Repositories</div>`;
 
-            if(response.length) {
-              for(const repo of response) {
-                const { description, id, language, name, html_url, homepage } = repo;
-                if(name === "Portfolio-Website") continue;
-                
-                const newRow = document.createElement('li');
-                const repoName = document.createElement('div');
-                const repoDesc = document.createElement('div');
-                const icons = document.createElement('div');
-                const repoLink = document.createElement('div');             
-                const runLink = document.createElement('div');             
-                
-                newRow.appendChild(repoName).innerHTML = `<h3>${name}</h3>`;
-                newRow.appendChild(repoDesc).innerHTML = description;
-                
-                newRow.appendChild(icons).className = "icons";
-                icons.innerHTML += `<a href="${html_url}" target="_blank"><img src="images/github-icon.png"></a>`;
-                icons.innerHTML += `<a href="${homepage ? homepage : ('./projects/'+html_url.replace("https://github.com/lcnervick/",""))}" target="_blank"><img src="images/run.png"></a>`;
+          if(response.length) {
+            for(const repo of response) {
+              const { description, id, language, name, html_url, homepage } = repo;
+              if(name === "Portfolio-Website") continue;
+              
+              const newRow = document.createElement('li');
+              const repoName = document.createElement('div');
+              const repoDesc = document.createElement('div');
+              const icons = document.createElement('div');
+              const repoLink = document.createElement('div');             
+              const runLink = document.createElement('div');             
+              
+              newRow.appendChild(repoName).innerHTML = `<h3>${name}</h3>`;
+              newRow.appendChild(repoDesc).innerHTML = description;
+              
+              newRow.appendChild(icons).className = "icons";
+              icons.innerHTML += `<a href="${html_url}" target="_blank"><img src="images/github-icon.png"></a>`;
+              icons.innerHTML += `<a href="${homepage ? homepage : ('./projects/'+html_url.replace("https://github.com/lcnervick/",""))}" target="_blank"><img src="images/run.png"></a>`;
 
-                table.appendChild(newRow);
-              }
+              table.appendChild(newRow);
             }
-          })
-          .catch((err) => { console.error('ERROR', err); });
+          } 
+        }).catch((err) => { console.error('ERROR', err); });
 
         // NAVIGATION MENU
         for(const button of document.querySelectorAll("nav .mobile")) {

@@ -1,0 +1,7 @@
+Options -Indexes
+
+DirectoryIndex index.html
+
+<FilesMatch "\.gitignore|README|LICENSE|\.git|\.vscode|\.env">  
+  Require all denied
+</FilesMatch>
