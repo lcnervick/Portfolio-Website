@@ -1,0 +1,10 @@
+#lightDarkModeButton {
+	display: flex;
+	gap: 0.5rem;
+}
+
+#lightDarkModeButton span {
+	font-size: 0.8rem;
+	line-height: 01rem;
+	font-weight: bold;
+}

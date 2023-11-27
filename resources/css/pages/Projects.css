@@ -1,0 +1,135 @@
+/***********  PROJECTS  *************/
+#projects {
+	width: 100%;
+	margin: 0;
+	padding: 2rem;
+	background-size: cover;
+}
+#projects .content {
+	width: 100%;
+    background-color: var(--theme-dark-trans);
+    padding: 1rem;
+    height: 100%;
+}
+
+#projects h2 {
+	color: var(--theme-yellow);
+}
+
+#projects .project {
+	display: grid;
+    width: 90%;
+    margin: 2rem auto;
+    padding: 2rem;
+    border: 2px solid var(--theme-darkblue);
+    grid-template-areas:
+        "logo small-description"
+        "description description";
+    grid-template-columns: 350px 1fr;
+    align-items: center;
+    gap: 0rem 3rem;
+}
+#projects .project figure {
+	grid-area: logo;
+	max-width: 350px;
+}
+#projects .project aside p {
+	grid-area: small-description;
+    font-size: 0.9rem;
+    border-left: 3px solid var(--theme-darkblue);
+    padding-left: 2rem;
+	text-align: justify;
+}
+#projects .project aside a {
+	display: block;
+    text-decoration: underline;
+    text-align: center;
+    margin-top: 0.25em;
+}
+#projects .project article {
+	grid-area: description;
+}
+
+#gitHubRepo ul {
+	padding: 1.5rem;
+	margin: 1.5rem;
+}
+#gitHubRepo li {
+	display: flex;
+	border-bottom: 1px solid var(--theme-main);
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 0.5rem 1.5rem;
+}
+#gitHubRepo li.header {
+	font-size: 1.2rem;
+	font-weight: normal;
+	font-family: 'Source Code Pro', sans-serif;
+	grid-template-columns: auto;
+	justify-content: center;
+}
+#gitHubRepo li > div {
+	padding: 0.5rem;
+	line-height: 1.5;
+}
+#gitHubRepo .repoName {
+	flex: 1 1 auto;
+	color: var(--theme-green);
+}
+#app.lightMode #gitHubRepo .repoName {
+	color: var(--theme-main);
+}
+
+#gitHubRepo .icons {
+	flex: 1 1 auto;
+	text-align:right;
+}
+#gitHubRepo .icons a {
+	display: inline-block;
+	width: 30px;
+	margin: 0px 10px;
+}
+#gitHubRepo .icons img {
+	width: 100%;
+}
+
+#gitHubRepo .repoDesc {
+	flex: 1 0 auto;
+	width: 100%;
+}
+@media screen and (max-width: 1100px) {
+	#projects {
+		padding: 1rem;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	#projects {
+		padding: 0.5rem;
+	}
+	#projects .project {
+		grid-template-areas:
+			"logo"
+			"small-description"
+			"description";
+		grid-template-columns: auto;
+
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#projects .project {
+		width: 100%;
+		padding: 0.5rem;
+	}
+	#projects .project aside p {
+		padding: 0 1rem 0 1rem;
+	}
+	#gitHubRepo ul {
+		padding: 1rem;
+		margin: 1.5rem 0.25rem;
+	}
+}
+
+

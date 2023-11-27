@@ -1,0 +1,45 @@
+header {
+	display: flex;
+    justify-content: space-between;
+	align-items: center;
+	gap:2rem;
+	flex-wrap: nowrap;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 5.5rem;
+    width: 100%;
+    padding: 0.5rem 1rem;
+	background-color: var(--theme-dark);
+    border-bottom: 1px solid var(--theme-purple);
+    box-shadow: 0px 0px 5px 0px #999;
+    z-index:10;
+}
+
+/************  HEADER STYLES  *************/
+
+header .mobile {
+	display: none;
+}
+
+header .logo {
+	height: 100%;
+}
+
+@media screen and (max-width: 800px) {
+	header {
+		height: 5.5rem;
+	}
+	main {
+		margin-top: 5.5rem;
+	}
+
+	header .mobile {
+		display: block;
+	}
+
+	header .desktop {
+		display: none;
+	}
+
+}

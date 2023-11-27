@@ -1,0 +1,342 @@
+/************ HERO STYLES *************/
+
+#hero {
+	position: relative;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: flex;
+	justify-content: start;
+	align-content: center;
+	overflow: hidden;
+}
+
+#hero > * {
+	z-index: 0;
+}
+
+#hero .hero-background {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: 120%;
+	background-position-x: right;
+	background-position-y: center;
+	animation: heroBackground 15s ease-in-out 0s alternate infinite;
+}
+
+@keyframes heroBackground {
+	from {
+		/* transform: translateY(-5%); */
+		background-position-y: top;
+	}
+	to {
+		/* transform: translateY(10%); */
+		background-position-y: bottom;
+	}
+}
+
+#hero .card.content {
+	grid-area: card;
+	width: 35rem;
+	max-width: 85%;
+	padding: 2rem;
+	margin: 4rem 7rem;
+	background-color: var(--theme-main);
+	color: var(--theme-light);
+	display: grid;
+	gap: 0.5rem 0rem;
+	justify-content: center;
+	grid-template-areas:
+		"image name"
+		"image title"
+		"image contact"
+		"synaptic synaptic"
+		"button button";
+	grid-template-columns: 150px 1fr;
+}
+
+#hero .card.content figure {
+	grid-area: image;
+	position: relative;
+	left: -3rem;
+}
+#hero .card.content figure img {
+	position: relative;
+	border: 3px solid var(--theme-purple);
+	z-index: 1;
+}
+#hero .card.content figure::after {
+	content: "";
+    background-color: var(--theme-darkblue);
+    display: block;
+    position: absolute;
+    top: 0px;
+    left: -10px;
+    width: 110%;
+    height: 95%;
+    z-index: 0;
+    transform: skew(5deg, 10deg);
+}
+
+#hero .card.content h1 {
+	grid-area: name;
+}
+#hero .card.content h3 {
+	grid-area: title;
+}
+#hero .card.content .contact-info {
+	grid-area: contact;
+	text-align: left;
+}
+#hero .card.content .contact-info p {
+	font-size:0.9rem;
+}
+
+#hero .card.content .synaptic-logo {
+	grid-area: synaptic;
+    padding: 0 0.75rem;
+    background-color: var(--theme-dark);
+	border: 3px solid var(--theme-light);
+    margin: 1rem;
+}
+#hero .card.content .button {
+	grid-area: button;
+	text-align:center;
+}
+
+
+
+#hero .card.content {
+	grid-template-areas:
+		"image name"
+		"image title"
+		"contact contact"
+		"synaptic synaptic"
+		"button button";
+	grid-template-columns: 150px 1fr;
+}
+@media screen and (max-width: 800px) {
+	#hero .card.content {
+		margin: 2em auto;
+	}
+
+}
+
+
+@media screen and (max-width: 600px) {
+	#hero .card.content figure {
+		left: -1rem;
+	}	
+}
+
+
+/*********  ABOUT ME STYLES  ************/
+
+#about {
+    padding: 0;
+	display: grid;
+	gap: 0.625rem;
+	grid-template-areas:
+		"title"
+		"content"
+		"aside"
+		"experience";
+	grid-template-columns: 100%;
+	width: 90%;
+}
+#about h2 {
+	grid-area: title;
+	color: var(--theme-green);
+}
+#app.lightMode #about h2 {
+	color: var(--theme-darkblue);
+}
+
+#about .executive-summary {
+	grid-area: content;
+	margin-bottom: 2rem;
+}
+#about aside {
+	grid-area: aside;
+    background-color: var(--theme-purple);
+    padding: 1.8rem;
+	margin: 0 auto;
+}
+#about aside p {
+	font-size: 1rem;
+	color: hsl(0, 0%, 90%);
+}
+#about aside h4 {
+	font-family: 'Source Code Pro';
+	font-size:2rem;
+	text-align: center;
+	color: hsl(0, 0%, 90%);
+}
+
+/*  JOB CARDS */
+
+#about .experience {
+	margin-top:2rem;
+	grid-area: experience;
+	display: grid;
+	grid-template-areas:
+		"exp exp exp exp"
+		". job job .";
+	grid-template-columns: 1% 1fr 1fr 1%;
+}
+
+#about .experience > h3 {
+	grid-area: exp;
+	color: var(--theme-yellow);
+	font-size: 1.125rem;
+}
+#about .experience .job-cards {
+	grid-area: job;
+	display:flex;
+	flex-wrap: wrap;
+}
+
+#about .experience .job-card {
+	grid-template-areas:
+		"job-date job-date"
+		"job-title job-title"
+		"job-company job-company"
+		"job-desc job-desc"
+		"job-items job-items";
+	margin: 1rem 0;
+	width: 96%;
+	padding: 1.5rem;
+    display: grid;
+    background-color: var(--theme-darkblue);
+    box-shadow: -3px 3px 12px -8px var(--theme-yellow);
+	flex: 0 1 auto;
+}
+
+#about .experience .job-card h4 {
+	grid-area: job-company;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.25rem;
+	text-align: right;
+	color: hsl(0, 0%, 90%);
+
+}
+#about .experience .job-card h5 {
+	grid-area: job-title;
+	font-family: 'Ubuntu', sans-serif;
+	font-size: 1.75rem;
+	color: hsl(0, 0%, 90%);
+
+}
+#about .experience .job-card h6 {
+	grid-area: job-date;
+	font-family: 'Roboto', sans-serif;
+	font-size: 0.75rem;
+	text-align: right;
+	color: hsl(0, 0%, 90%);
+
+}
+#about .experience .job-card p {
+	grid-area: job-desc;
+    font-size: 1rem;
+    line-height: 1.2;
+    letter-spacing: normal;
+	color: hsl(0, 0%, 90%);
+}
+
+#about .experience .job-card ul {
+	grid-area: job-items;
+	margin: 1.5rem 0;
+}
+#about .experience .job-card ul li {
+	list-style: inside circle;
+	line-height: 1.2;
+	margin: 0.25rem 0;
+	color: hsl(0, 0%, 90%);
+
+}
+
+
+@media screen and (min-width: 800px) {
+	#about {
+		grid-template-areas:
+			"title aside"
+			"content aside"
+			"experience experience";
+		grid-template-columns: 1fr 1fr;
+	}
+	#about aside {
+		margin: 0 0rem 0 2em;
+	}
+	
+}
+
+@media screen and (min-width: 600px) {
+	#about .experience .job-card {
+		grid-template-areas:
+			"job-title job-company"
+			"job-title job-date"
+			"job-desc job-desc"
+			"job-items job-items";
+		margin: 1rem 1%;
+		padding: 2rem;
+		width: auto;
+		min-width: 550px;
+	}
+	#about .experience > h3 {
+		font-size: 1.7rem;
+	}
+}
+
+
+/**********  QUOTE  **********/
+
+
+#quote {
+	width: 100%;
+	margin: 0;
+	padding: 3%;
+	position: relative;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position: center;
+}
+#quote * {
+	position: relative;
+	z-index:2;
+	color: hsl(0, 0%, 90%);
+}
+
+#quote .transparent-cover {
+	position: absolute;
+	top:0px;
+	left:0px;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0,0,0,0.8);
+	/* opacity: 0.5; */
+	z-index:unset;
+}
+
+#quote h3 {
+	font-size: 1.5rem;
+	font-family: 'Source Code Pro', sans-serif;
+	margin: 0.5em;
+	text-align: center;
+}
+
+#quote h4 {
+	font-size: 1em;
+	font-family: 'Roboto', cursive;
+	text-align: right;
+	text-transform: uppercase;
+}
+
+@media screen and (min-width: 600px) {
+	#quote h3 {
+		font-size: 2rem;
+	}
+}
+

@@ -1,0 +1,37 @@
+{
+	"home": {
+		"path": "/",
+		"name": "About",
+		"title": "About | Leif Nervick's Developer Portfolio",
+		"description": "",
+		"menuItem": true
+	},
+	"skills": {
+		"path": "skills",
+		"name": "Skills",
+		"title": "Skills | Leif Nervick's Developer Portfolio",
+		"description": "",
+		"menuItem": true
+	},
+	"certs": {
+		"path": "certifications",
+		"name": "Certifications",
+		"title": "Certifications | Leif Nervick's Developer Portfolio",
+		"description": "",
+		"menuItem": true
+	},
+	"projects": {
+		"path": "projects",
+		"name": "Projects",
+		"title": "Projects | Leif Nervick's Developer Portfolio",
+		"description": "",
+		"menuItem": true
+	},
+	"contact": {
+		"path": "contact",
+		"name": "Contact Me",
+		"title": "Contact Me | Leif Nervick's Developer Portfolio",
+		"description": "",
+		"menuItem": true
+	}
+}

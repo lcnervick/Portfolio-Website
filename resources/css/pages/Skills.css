@@ -1,0 +1,100 @@
+
+
+/************  SKILLS  **************/
+#skills {
+    background-color: var(--theme-main);
+    width: 100%;
+    margin: 0;
+}
+
+#skills .content {
+	width:100%;
+	padding: 0.5rem 1rem;
+	background-color: var(--theme-dark);
+}
+
+#skills h2 {
+	color: var(--theme-main);
+}
+
+#skills article p {
+	font-size: 1rem;
+}
+
+#skills .skill-set-container {
+	margin-top: 1rem;
+}
+
+#skills .skill-set {
+	grid-template-areas:
+		"label"
+		"bar";
+	grid-template-columns: auto;
+
+	display: grid;
+    align-content: stretch;
+    align-items: center;
+	margin: 0;
+}
+#skills .skill-set h3 {
+	grid-area: label;
+	display: inline-block;
+	font-size:1.1rem;
+}
+#skills .skill-set .exp-bar-container {
+	grid-area: bar;
+    position: relative;
+    height: 20px;
+    border: 2px solid var(--theme-light);
+    border-radius: 10px;
+	font-size:0.75rem;
+	margin: 0 30px;
+}
+/* #skills .skill-set .exp-bar-container::before {
+	content: "0yr";
+	position: absolute;
+	top: 2px;
+	left: -30px;
+}
+#skills .skill-set .exp-bar-container::after {
+	content: "12yr";
+	position: absolute;
+	top: 2px;
+	right: -30px;
+} */
+
+:root {
+	--data-prof: 0;
+}
+#skills .skill-set .exp-bar {
+	position: relative;
+	width: 0;
+	height: 100%;
+	border-radius: 15px;
+	background-color: var(--theme-green);
+	transition: width 0.5s ease-in-out;
+}
+#skills .skill-set .exp-bar.full {
+	width: calc((var(--data-prof) /10) * 100%);
+}
+#skills .skill-set .exp-bar::after {
+	content: attr(data-prof);
+	font-size: 0.75rem;
+	font-weight: bold;
+	position: absolute;
+	top: 2px;
+	color: hsl(0, 0%, 20%);
+	width: 100%;
+	text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+	#skills .skill-set {
+		grid-template-areas: "label bar";
+		grid-template-columns: 150px 1fr;
+	}
+
+	#skills .content {
+		width: auto;
+	}
+}
