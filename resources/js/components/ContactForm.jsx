@@ -85,6 +85,7 @@ export default function ContactForm() {
 
 
 			} catch (error) { // Handle network errors (e.g., show a network error message)
+				waiting(false);
 				console.log('Form submission failed: server error');
 				if (error.response?.data?.errors ?? null) {
 					for (let m in error.response.data.errors) {

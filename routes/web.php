@@ -51,6 +51,8 @@ function register_auto_routes($routes, $std_props, $route_prefix = '') {
 
 register_auto_routes($routeData, $standard_props);
 
+Route::post('/contact-us', [ContactFormController::class]);
+
 Route::get('/repoList', function(Request $request) {
 	$ch = curl_init("https://api.github.com/users/lcnervick/repos");
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
