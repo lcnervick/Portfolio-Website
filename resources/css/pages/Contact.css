@@ -29,6 +29,7 @@
 .contact-main-section {
 	grid-area: main-section;
 	padding: 0;
+	text-align:center;
 }
 .contact-main-section figure {
 	width: 50%;
@@ -38,7 +39,6 @@
 .contact-main-section h1 {
 	font-size:1.75rem;
 	margin-bottom: 2em;
-	width: 70%;
 	text-align: center;
 }
 @media screen and (min-width: 900px) {

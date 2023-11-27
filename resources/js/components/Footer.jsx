@@ -70,7 +70,7 @@ export default function Footer() {
 					</nav>
 				</section>
 			</div>
-			<p style={{textAlign: 'center', fontSize: 'bold', padding: '0.5rem'}}>&copy; 2023 Synaptic Software</p>
+			<p style={{textAlign: 'center', fontSize: 'bold', padding: '0.5rem', width: '100%'}}>&copy; 2023 Synaptic Software</p>
 		</footer>
 	)
 }
