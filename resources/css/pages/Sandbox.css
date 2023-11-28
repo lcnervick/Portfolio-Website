@@ -1,0 +1,61 @@
+.sandbox-container {
+	padding: 1.5rem;
+}
+
+.sandbox-container > h1,
+.sandbox-container > p {
+	max-width: 800px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.sandbox-apps {
+	display: flex;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	align-items: center;
+}
+.sandbox-apps > * {
+	flex: 1 1 auto;
+	align-self: stretch;
+}
+
+/*** Idle Timer ***/
+
+#idleTimer {
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: inset 0px 0px 3px 5px var(--theme-purple);
+	padding: 10px
+}
+#idleTimer table {
+	border-collapse: collapse;
+}
+#idleTimer td {
+	padding: 0.5rem;
+}
+
+/*** Please Wait ***/
+
+#pleaseWait {
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: inset 0px 0px 3px 5px var(--theme-yellow);
+	padding: 10px
+}
+#pleaseWait table {
+	border-collapse: collapse;
+}
+#pleaseWait td {
+	padding: 0.5rem;
+}
+#pleaseWait button {
+	padding: 0.5rem 1rem;
+}
+.please-wait-controls {
+	display: flex;
+	justify-content: space-between;
+}
+.please-wait-controls > * {
+	flex: 1 1 auto;
+}

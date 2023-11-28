@@ -148,12 +148,12 @@ input[type="checkbox"]:disabled, input[type="radio"]:disabled {
 	cursor: not-allowed;
 }
 
-input[type="text"], textarea {
+input[type="text"], textarea, input[type="number"] {
 	padding: 0.5em;
 	border: 2px solid var(--theme-main);
     border-radius: 6px;
 }
-input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:focus-visible {
+input[type="text"]:focus-visible, input[type="email"]:focus-visible, textarea:focus-visible, input[type="number"]:focus-visible {
 	border: 2px solid var(--theme-light);
 	outline: none;
 }

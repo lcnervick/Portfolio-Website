@@ -133,7 +133,7 @@ nav.header-navigation ul li > a:active {
 
 
 /* Responsive Styles (For Large Screens) */
-@media (min-width: 1080px) {
+@media (min-width: 992px) {
 	nav.header-navigation {
 		display: block;
 		position: relative;
@@ -278,7 +278,7 @@ nav.footer-navigation ul li > a:hover > svg {
   }
 
   /* Responsive Styles */
-@media (min-width: 1080px) {
+@media (min-width: 992px) {
 	.mobile-menu-button {
 		display: none;
 	}

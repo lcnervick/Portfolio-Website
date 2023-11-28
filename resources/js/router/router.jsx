@@ -7,6 +7,7 @@ import Skills from "../pages/Skills";
 import Certifications from "../pages/Certifications";
 import Projects from "../pages/Projects";
 import Contact from "../pages/Contact";
+import Sandbox from "../pages/Sandbox";
 
 /* Pull Data From Global Routes Data File and add registered components to the 'element' property of each. */
 const componentRegistry = {
@@ -14,6 +15,7 @@ const componentRegistry = {
 	skills: <Skills />,
 	certs: <Certifications />,
 	projects: <Projects />,
+	sandbox: <Sandbox />,
 	contact: <Contact />
 }
 

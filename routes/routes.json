@@ -27,6 +27,13 @@
 		"description": "",
 		"menuItem": true
 	},
+	"sandbox": {
+		"path": "sandbox",
+		"name": "Sandbox",
+		"title": "Sandbox | Leif Nervick's Developer Portfolio",
+		"description": "",
+		"menuItem": true
+	},
 	"contact": {
 		"path": "contact",
 		"name": "Contact Me",

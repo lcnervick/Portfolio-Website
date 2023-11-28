@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 import AnimatedElement from "../components/AnimatedElement";
 
 import '../../css/pages/Home.css';
@@ -7,6 +6,7 @@ import heroImage from '../../images/hero-background.png';
 import profilePic from '../../images/profile-pic.png';
 import synapticSoftwareDark from '../../images/synaptic-software-dark.png';
 import quoteBackground from '../../images/quote-background.png';
+import { Link } from "react-router-dom";
 
 export default function Home(props) {
   document.title = props.title || 'Leif Nervick | Web Developer';
@@ -28,7 +28,7 @@ export default function Home(props) {
           </div>
           <div className="synaptic-logo"><a href="http://www.synapticsoftware.net" target="_blank"><img src={synapticSoftwareDark} /></a></div>
           <AnimatedElement animate='zoom' options={{delay:1000}}>
-            <a href="#contact" className="button"><button>Contact Me</button></a>
+            <Link to="/contact" className="button"><button>Contact Me</button></Link>
           </AnimatedElement>
         </div>
       </section>
