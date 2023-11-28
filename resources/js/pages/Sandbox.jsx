@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../css/pages/sandbox.css';
+import '../../css/pages/Sandbox.css';
 import IdleTimer from '../sandbox/idleTimer/idleTimer';
 import usePleaseWait from '../contexts/PleaseWait';
 
