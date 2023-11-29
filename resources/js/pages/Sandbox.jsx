@@ -3,6 +3,7 @@ import '../../css/pages/Sandbox.css';
 import IdleTimer from '../sandbox/idleTimer/idleTimer';
 import usePleaseWait from '../contexts/PleaseWait';
 import InfoSlider from '../sandbox/InfoSlider/InfoSlider';
+import usePopups from '../sandbox/popups/Popups';
 
 export default function Sandbox() {
 	// Idle Timer States
@@ -25,6 +26,34 @@ export default function Sandbox() {
 		setTimeout(() => {
 			waiting(false);
 		}, pleaseWaitTimeout * 1000);
+	}
+
+	// POPUPS PROVIDER
+	const popups = usePopups();
+	const LightboxBody = () => {
+		return (<>
+			<p>You can call this function with a title and any kind of body you want. For example:<br /><br /></p>
+			<ul>
+				<li>This is actually a react functional component that was passed to the function.</li>
+				<li>You can pass in text too, but to help avoid XSS attacks, no html is allowed.</li>
+			</ul>
+		</>)
+	}
+	const AlertBody = () => {
+		return (<>
+			<p>The alert boxes are good for information the user needs to see and/or agree to. There are 4 different styles:<br /><br /></p>
+			<ul>
+				<li>Success - for telling the user something worked.</li>
+				<li>Warn - to warn the user about something.</li>
+				<li>Fail - to let the user know something didn't work (which never happens, lol).</li>
+				<li>Info - to display information to the user.</li>
+			</ul>
+		</>)
+	}
+	const ConfirmBody = () => {
+		return (<>
+			<p>The confirmation popups are good for getting user input one direction or the other. The function returns a promise with the callback set to true for YES or false for NO.<br /><br /></p>
+		</>)
 	}
 
 	return (<div className='sandbox-container'>
@@ -79,6 +108,27 @@ export default function Sandbox() {
 				<h2>Info Slider</h2>
 				<p>This component takes a simple JSON object and renders a nice-looking animated slider and info box. The button can be programmed to do anything pretty easily based on the selected 'page'.</p>
 				<InfoSlider />
+			</div>
+
+			<div id="popupProvider">
+				<h2>Popup Provider</h2>
+				<p>This is a very handy tool designed for React.js that allows you to popup modals using a provider and hook. There are regular 'lightbox' style modals, alert popups and confirmation popups.</p>
+				<div className='button-container'>
+					<button class="button" onClick={(e) => popups.showLightbox('Sample Lightbox', <LightboxBody />)}>Try the Lightbox</button>
+					<button class="button confirm-button" onClick={(e) => 
+						popups.showConfirm('Let Me Ask You Something', <ConfirmBody />).then((response) => {
+							popups.showAlert(response ? 'success': 'fail', (response ? 'Yesssss!' : 'Really?!?'), 'You selected the ' + (response ? 'YES' : 'NO') + ' button!')
+						})
+					}>Ask Me Something</button>
+				</div>
+				<hr />
+				<div className='button-container'>
+					<button class="button alert-button" onClick={(e) => popups.showAlert('success', 'It Worked!', <AlertBody />)}>Success Alert</button>
+					<button class="button alert-button" onClick={(e) => popups.showAlert('warn', 'Something Will Happen', <AlertBody />)}>Warning Alert</button>
+					<button class="button alert-button" onClick={(e) => popups.showAlert('fail', 'That Didn\'t Work', <AlertBody />)}>Failure Alert</button>
+					<button class="button alert-button" onClick={(e) => popups.showAlert('info', 'Something You Should Know', <AlertBody />)}>Info Alert</button>
+				</div>
+				<hr />
 			</div>
 		</div>
 	</div>)

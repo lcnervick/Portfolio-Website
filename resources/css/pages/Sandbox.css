@@ -70,3 +70,33 @@
 	box-shadow: inset 0px 0px 3px 5px var(--theme-darkblue);
 	padding: 10px;
 }
+
+/*** Info Slider ***/
+
+#popupProvider {
+	width: 95%;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: inset 0px 0px 3px 5px var(--theme-green);
+	padding: 10px;
+}
+
+#popupProvider button {
+	padding: 0.75rem 1rem;
+}
+
+#popupProvider .button-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+#popupProvider .button-container button {
+	flex: 1 0 auto;
+}
+#popupProvider .button-container .alert-button {
+	border-color: var(--theme-green);
+}
+#popupProvider .button-container .confirm-button {
+	border-color: var(--theme-darkblue);
+}
+	

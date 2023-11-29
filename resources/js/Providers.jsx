@@ -19,12 +19,14 @@ import router from './router/router';
 import '../css/styles.css';
 import '../css/custom-elements.css';
 import '../css/animations.css';
+import { PopupProvider } from './sandbox/popups/Popups';
 
 
 export default function Providers() {
 	return (
 		<React.StrictMode>
 			<LightDarkModeProvider>
+				<PopupProvider>
 				<PleaseWaitProvider>
 					{/* <AuthProvider> */}
 						<RouterProvider router={router}>
@@ -32,6 +34,7 @@ export default function Providers() {
 						</RouterProvider>
 					{/* </AuthProvider> */}
 				</PleaseWaitProvider>
+				</PopupProvider>
 			</LightDarkModeProvider>
 		</React.StrictMode>
 	)

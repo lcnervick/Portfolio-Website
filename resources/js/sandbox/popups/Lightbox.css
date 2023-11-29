@@ -1,0 +1,90 @@
+.lightbox {
+	overflow:hidden;
+	position:fixed;
+	top: 50%;
+	left:50%;
+	transform:translate(-50%, -50%);
+	min-width: 350px;
+	min-height:100px;
+	max-width:95vw;
+	max-height:calc((100vh * 100) - 60px);
+	background-color: var(--theme-light);
+	padding:5px;
+	border:3px solid var(--theme-dark-accent);
+	border-radius: 10px;
+	box-shadow:2px 2px 6px #222;
+	color: var(--theme-dark);
+}
+.qbox {
+	background-color:#eee;
+	border:5px solid #c0c0c0;
+}
+
+
+.lightbox-header {
+	flex: 0 0 auto;
+	height:35px;
+	display:flex;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	border-bottom:1px solid #999;
+	cursor:grab;
+}
+.lightbox-title, .qBox-title {
+	flex: 1 1 auto;
+	height:100%;
+	top:0px;
+	padding-left:5px;
+	white-space:nowrap;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	cursor:move;
+	line-height:35px;
+}
+.lightbox-title h2, .qBox-title h2 {
+	width: 100%;
+	color: var(--theme-dark);
+    white-space: nowrap;
+    overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 30px;
+	margin: 0;
+}
+.lightbox-header .closeButton, .qBox-header .closeButton {
+	flex:0 0 auto;
+	width: 35px;
+	margin: 0;
+	padding: 5px;
+	background: none;
+	border: none;
+	overflow:hidden;
+	text-align:right;
+	cursor:pointer;
+
+}
+.lightbox-content, .qbox-content {
+	flex:1 1 auto;
+	overflow-y:auto;
+	position:relative;
+	overflow-x: hidden;
+	padding:10px;
+	max-height:calc(100% - 35px);
+}
+
+.lightbox .button-container {
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	margin: 0 auto;
+}
+.shadowbox {
+	position: fixed;
+    top: 0px;
+    left: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.3);
+}
