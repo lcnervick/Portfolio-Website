@@ -14,6 +14,7 @@
 	justify-content: space-evenly;
 	flex-wrap: wrap;
 	align-items: center;
+	gap: 2rem;
 }
 .sandbox-apps > * {
 	flex: 1 1 auto;
@@ -58,4 +59,14 @@
 }
 .please-wait-controls > * {
 	flex: 1 1 auto;
+}
+
+/*** Info Slider ***/
+
+#infoSlider {
+	width: 95%;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: inset 0px 0px 3px 5px var(--theme-darkblue);
+	padding: 10px;
 }

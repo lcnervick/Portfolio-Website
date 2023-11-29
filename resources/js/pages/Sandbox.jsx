@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../../css/pages/Sandbox.css';
 import IdleTimer from '../sandbox/idleTimer/idleTimer';
 import usePleaseWait from '../contexts/PleaseWait';
+import InfoSlider from '../sandbox/idleTimer/InfoSlider/InfoSlider';
 
 export default function Sandbox() {
 	// Idle Timer States
@@ -72,6 +73,12 @@ export default function Sandbox() {
 					</table>
 					<button className="button light-button" onClick={tryPleaseWait}>Try It!</button>
 				</div>
+			</div>
+
+			<div id="infoSlider">
+				<h2>Info Slider</h2>
+				<p>This component takes a simple JSON object and renders a nice-looking animated slider and info box. The button can be programmed to do anything pretty easily based on the selected 'page'.</p>
+				<InfoSlider />
 			</div>
 		</div>
 	</div>)
