@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../../css/pages/Sandbox.css';
 import IdleTimer from '../sandbox/idleTimer/idleTimer';
 import usePleaseWait from '../contexts/PleaseWait';
-import InfoSlider from '../sandbox/idleTimer/InfoSlider/InfoSlider';
+import InfoSlider from '../sandbox/InfoSlider/InfoSlider';
 
 export default function Sandbox() {
 	// Idle Timer States
@@ -19,7 +19,7 @@ export default function Sandbox() {
 
 	// Please Wait States
 	const [pleaseWaitTimeout, setPleaseWaitTimeout] = useState(3);
-	const { waiting, isWaiting, text, setText } = usePleaseWait({text:'Check This Out'})
+	const { waiting, isWaiting, text, setText } = usePleaseWait()
 	const tryPleaseWait = (e) => {
 		waiting(true);
 		setTimeout(() => {

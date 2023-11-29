@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import AnimatedElement from '../../../components/AnimatedElement';
+import AnimatedElement from '../../components/AnimatedElement';
 import parse from 'html-react-parser';
 
 import './InfoSlider.css';
@@ -83,7 +83,7 @@ export default function InfoSlider() {
 		<div className="info-container">
 		{
 			data.map(d => (
-				<div className={'info-card' + (info.name === d.name ? ' visible-info' : '')}>
+				<div className={'info-card' + (info.name === d.name ? ' visible-info' : '')} key={d.name}>
 					<h3>{info.desc}</h3>
 					<h4><span style={{verticalAlign:'top'}}>$</span><span className='info-container-price'>{info.rate}</span>{info.freq}</h4>
 					<hr />

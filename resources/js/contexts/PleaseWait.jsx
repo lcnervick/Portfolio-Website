@@ -5,7 +5,7 @@ import '../../css/components/PleaseWait.css';
 const PleaseWaitContext = createContext({
 	waiting: () => {},
 	isWaiting: false,
-	text: 'Loading, Please Wait...',
+	text: 'Loading... Please Wait',
 	setText: () => {},
 	image: pleaseWaitImage,
 	setImage: () => {}
@@ -27,7 +27,7 @@ export function PleaseWait({visible}) {
 
 export function PleaseWaitProvider({children}) {
 	const [isLoading, setIsLoading] = useState(false);
-	const [text, setText] = useState('Loading...<br />Please Wait');
+	const [text, setText] = useState('Loading... Please Wait');
 	const [image, setImage] = useState(pleaseWaitImage);
 	
 	const waiting = (status) => {
