@@ -72,6 +72,15 @@
 	text-align: center;
 	position: relative;
 }
+.lightMode .info-container,
+.lightMode .info-chooser,
+.lightMode .info-card-button {
+	color: var(--theme-light);
+}
+.lightMode .info-card-button {
+	background-color: var(--theme-main) !important;
+	border-color: var(--theme-main) !important;
+}
 
 @keyframes show-sign-up {
 	0% { 

@@ -92,7 +92,7 @@ export default function InfoSlider() {
 					</ul>
 					<AnimatedElement animate="zoom">
 						<button
-							className='button dark-button inverted'
+							className='button dark-button inverted info-card-button'
 							onClick={handleButton}
 						>Sign-Up</button>
 					</AnimatedElement>
