@@ -27,7 +27,10 @@ export default defineConfig(({mode}) => {
         },
         plugins: [
             laravel({
-                input: ['resources/app.jsx'],
+                input: [
+                    'resources/app.jsx',
+                    'resources/js/helperFuncs.js'
+                ],
                 refresh: true,
             }),
             react()
