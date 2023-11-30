@@ -4,6 +4,7 @@ import IdleTimer from '../sandbox/idleTimer/idleTimer';
 import usePleaseWait from '../contexts/PleaseWait';
 import InfoSlider from '../sandbox/InfoSlider/InfoSlider';
 import usePopups from '../sandbox/popups/Popups';
+import CreditCardInput from '../sandbox/CreditCardInput/CreditCardInput';
 
 export default function Sandbox() {
 	// Idle Timer States
@@ -104,18 +105,12 @@ export default function Sandbox() {
 				</div>
 			</div>
 
-			<div id="infoSlider">
-				<h2>Info Slider</h2>
-				<p>This component takes a simple JSON object and renders a nice-looking animated slider and info box. The button can be programmed to do anything pretty easily based on the selected 'page'.</p>
-				<InfoSlider />
-			</div>
-
 			<div id="popupProvider">
 				<h2>Popup Provider</h2>
 				<p>This is a very handy tool designed for React.js that allows you to popup modals using a provider and hook. There are regular 'lightbox' style modals, alert popups and confirmation popups.</p>
 				<div className='button-container'>
-					<button class="button" onClick={(e) => popups.showLightbox('Sample Lightbox', <LightboxBody />)}>Try the Lightbox</button>
-					<button class="button confirm-button" onClick={(e) => 
+					<button className="button" onClick={(e) => popups.showLightbox('Sample Lightbox', <LightboxBody />)}>Try the Lightbox</button>
+					<button className="button confirm-button" onClick={(e) => 
 						popups.showConfirm('Let Me Ask You Something', <ConfirmBody />).then((response) => {
 							popups.showAlert(response ? 'success': 'fail', (response ? 'Yesssss!' : 'Really?!?'), 'You selected the ' + (response ? 'YES' : 'NO') + ' button!')
 						})
@@ -123,13 +118,26 @@ export default function Sandbox() {
 				</div>
 				<hr />
 				<div className='button-container'>
-					<button class="button alert-button" onClick={(e) => popups.showAlert('success', 'It Worked!', <AlertBody />)}>Success Alert</button>
-					<button class="button alert-button" onClick={(e) => popups.showAlert('warn', 'Something Will Happen', <AlertBody />)}>Warning Alert</button>
-					<button class="button alert-button" onClick={(e) => popups.showAlert('fail', 'That Didn\'t Work', <AlertBody />)}>Failure Alert</button>
-					<button class="button alert-button" onClick={(e) => popups.showAlert('info', 'Something You Should Know', <AlertBody />)}>Info Alert</button>
+					<button className="button alert-button" onClick={(e) => popups.showAlert('success', 'It Worked!', <AlertBody />)}>Success Alert</button>
+					<button className="button alert-button" onClick={(e) => popups.showAlert('warn', 'Something Will Happen', <AlertBody />)}>Warning Alert</button>
+					<button className="button alert-button" onClick={(e) => popups.showAlert('fail', 'That Didn\'t Work', <AlertBody />)}>Failure Alert</button>
+					<button className="button alert-button" onClick={(e) => popups.showAlert('info', 'Something You Should Know', <AlertBody />)}>Info Alert</button>
 				</div>
-				<hr />
 			</div>
+
+			<div id="creditCardInput">
+				<h2>Credit Card Form</h2>
+				<p>Everyone needs a simple-to-use and easily integratable credit card form, so here it is! It uses a form validator that I created to validate the input and auto-advance to the next field when ready.</p>
+				<CreditCardInput />
+			</div>
+
+			<div id="infoSlider">
+				<h2>Info Slider</h2>
+				<p>This component takes a simple JSON object and renders a nice-looking animated slider and info box. The button can be programmed to do anything pretty easily based on the selected 'page'.</p>
+				<InfoSlider />
+			</div>
+
+
 		</div>
 	</div>)
 }

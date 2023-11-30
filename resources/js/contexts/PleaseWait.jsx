@@ -60,7 +60,7 @@ export default function usePleaseWait(props) {
 	};
 	const opts = {...defaults, ...props}
 
-	console.log('context', context)
+	// console.log('context', context)
 	context.setText(opts.text);
 	context.setImage(opts.image);
 	return context;

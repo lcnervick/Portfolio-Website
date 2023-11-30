@@ -1,0 +1,7 @@
+.input-unvalidated {
+	border-color: red !important;
+}
+
+.input-validated {
+	border-color: green !important;
+}

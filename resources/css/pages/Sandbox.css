@@ -100,3 +100,14 @@
 	border-color: var(--theme-darkblue);
 }
 	
+
+/*** Credit Card Input ***/
+
+#creditCardInput {
+	width: 95%;
+	max-width: 500px;
+	margin: 0 auto;
+	box-shadow: inset 0px 0px 3px 5px var(--theme-darkblue);
+	padding: 10px;
+}
+

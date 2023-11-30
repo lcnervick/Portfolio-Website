@@ -1,0 +1,119 @@
+
+.card-input-window {
+	color: var(--theme-light);
+}
+
+.card-input-label {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.5rem;
+}
+.card-input-field {
+	display: flex;
+	gap: 0.5rem;
+	margin-left: 0.5rem;
+}
+
+.card-input-window label {
+    margin: 1rem 0 0 0;
+	padding: 0.5rem 0 0 0;
+	font-weight: bold;
+	white-space: nowrap;
+}
+.card-input-window input {
+	flex: 1 0 auto;
+	font-size:16px;
+	margin-left: 5px;
+}
+.card-input-window select {
+	padding:5px;
+	font-size:16px;
+	width:215px;
+}
+
+.card-input-inline {
+	flex: 1 0 auto;
+	display:inline-block !important;
+	width: auto !important;
+}
+
+
+#card-exp {
+	width:65px;
+}
+#card-ccv {
+	width:65px;
+}
+#card-zip {
+	width:65px;
+}
+
+
+.card-logo-container {
+	flex: 0 1 auto;
+	margin-left: 2rem;
+	/* align-self: flex-end; */
+}
+.card-logo {
+	position: relative;
+	max-height: 2rem;
+	width: auto;
+}
+.card-logo img {
+	height: 2rem;
+}
+.card-logo-overlay {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+	display: grid;
+	grid-template-columns: repeat(4, 25%);
+}
+.card-logo-overlay > * {
+	opacity: 60%;
+	background-color: var(--theme-dark);
+	border-radius: 4px;
+}
+.card-logo-overlay.visa .visa,
+.card-logo-overlay.mc .mc,
+.card-logo-overlay.disc .disc,
+.card-logo-overlay.amex .amex
+{
+	opacity: 0% !important;
+}
+
+
+.tipButton {
+	display: block;
+    width: 80%;
+	min-height: 38px;
+    margin: 25px auto;
+    border: 1px solid #e0e0e0;
+    padding: 5px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.tipButton span {
+	display:block;
+	font-size:smaller;
+	font-weight:normal;
+}
+
+.otherTipAmt {
+	padding: 5px;
+    font-size: 16px;
+    margin-right: 15px;
+}
+
+.tipBaseChange {
+	cursor: pointer;
+    margin: 5px auto;
+    padding: 5px;
+    display: block;
+    text-align: center;
+    border: 1px dashed #e0e0e0;
+}

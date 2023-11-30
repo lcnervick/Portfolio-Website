@@ -30,7 +30,7 @@ export const PopupProvider = ({ children }) => {
 	};
 
 	const showAlert = (type, title, Message) => {
-		console.log("Showing Alert", type, title, Message);
+		// console.log("Showing Alert", type, title, Message);
 		return new Promise((resolve) => {
 			setAlerts(prevAlerts => [
 				...prevAlerts,
@@ -50,7 +50,7 @@ export const PopupProvider = ({ children }) => {
 	};
 
 	const showConfirm = (title, Message) => {
-		console.log("Showing Confirm", title, Message);
+		// console.log("Showing Confirm", title, Message);
 		return new Promise((resolve) => {
 			setConfirms(prevConfirms => [
 				...prevConfirms,

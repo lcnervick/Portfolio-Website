@@ -20,6 +20,7 @@
 
         <script src="https://kit.fontawesome.com/9de295ac74.js" crossorigin="anonymous"></script>
         
+        @vite('resources/js/helperFuncs.js')
         <script type="text/javascript">
             // Global ROUTE DATA
             const routeData = <?php echo json_encode($routes); ?>;

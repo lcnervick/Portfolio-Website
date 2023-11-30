@@ -51,6 +51,6 @@ const routeConstructor = [
 	}
 ];
 const router = createBrowserRouter(routeConstructor);
-console.log("Routes", routes);
+// console.log("Routes", routes);
 
 export default router;

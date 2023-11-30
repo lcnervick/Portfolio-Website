@@ -13,7 +13,7 @@ export function useLightDarkMode() {
 
 export default function LightDarkModeSwitch() {
 	const {lightMode, toggleLightMode} = useLightDarkMode();
-	console.log('lightMode', lightMode);
+	// console.log('lightMode', lightMode);
 
 	return (
 		<label id="lightDarkModeButton">
