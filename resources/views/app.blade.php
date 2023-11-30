@@ -26,7 +26,7 @@
         </script>
 
         @viteReactRefresh
-        @vite(['resources/app.jsx', 'resources/js/helperFuncs.js']);
+        @vite(['resources/app.jsx']);
 
         <!-- Styles -->
 
