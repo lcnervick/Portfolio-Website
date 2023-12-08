@@ -51,10 +51,10 @@ export default function Projects(props) {
           </li>
 
           <li className="project">
-            <figure><a href="https://new.activityuplift.com" target="_blank"><img src={activityUpliftDark} /></a></figure>
+            <figure><a href="https://activityuplift.com" target="_blank"><img src={activityUpliftDark} /></a></figure>
             <aside>
               <p>Activity Uplift is a service that provides downloadable activity sheets and videos geared towards senior citizens with Dementia or Alzheimer's Disease. Different difficulty levels for each activity cater towards seniors at all stages and ability levels.<br />
-              <a href="https://new.activityuplift.com" target="_blank">Visit the Website</a></p>
+              <a href="https://activityuplift.com" target="_blank">Visit the Website</a></p>
             </aside>
             <article>
               <p>This was a takeover project that was initially put together using WordPress with Divi and utilized MemberPress and WooCommerce for their subscription management and order processing. The site was extremely slow and not well organized or user-friendly when it came to finding downloads.</p>
