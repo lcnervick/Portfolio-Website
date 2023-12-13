@@ -5,6 +5,7 @@ import usePleaseWait from '../contexts/PleaseWait';
 import InfoSlider from '../sandbox/InfoSlider/InfoSlider';
 import usePopups from '../sandbox/popups/Popups';
 import CreditCardInput from '../sandbox/CreditCardInput/CreditCardInput';
+import StarRating from '../sandbox/StarRating/StarRating';
 
 export default function Sandbox() {
 	// Idle Timer States
@@ -56,6 +57,9 @@ export default function Sandbox() {
 			<p>The confirmation popups are good for getting user input one direction or the other. The function returns a promise with the callback set to true for YES or false for NO.<br /><br /></p>
 		</>)
 	}
+
+	// STAR RATING STATES
+	const [starRating, setStarRating] = useState(3.5);
 
 	return (<div className='sandbox-container'>
 		<h1>My Sandbox</h1>
@@ -122,6 +126,29 @@ export default function Sandbox() {
 					<button className="button alert-button" onClick={(e) => popups.showAlert('warn', 'Something Will Happen', <AlertBody />)}>Warning Alert</button>
 					<button className="button alert-button" onClick={(e) => popups.showAlert('fail', 'That Didn\'t Work', <AlertBody />)}>Failure Alert</button>
 					<button className="button alert-button" onClick={(e) => popups.showAlert('info', 'Something You Should Know', <AlertBody />)}>Info Alert</button>
+				</div>
+			</div>
+
+			<div id="starRating">
+				<div className='user-review-card'>
+					<div className='user-review-card-container'>
+						<figure className='user-review-avatar'>
+							{/* <img src={review.avatar} alt="Reviewer Profile Image" /> */}
+						</figure>
+
+						<h2 className='user-review-name'>
+							Star Rating
+						</h2>
+
+						<div className='user-review-stars'>
+							<StarRating rating={starRating} />
+						</div>
+
+						<div className='star-rating-slider-container'>
+							<input type="range" min="0" max="5" step="0.1" value={starRating} onChange={e => setStarRating(e.target.value)} className='star-rating-slider' />
+						</div>
+						<p>Drag the slider to see the star rating update to your slider position. This component just needs a number and it will format the stars accordingly. Save or update the rating as necessary.</p>
+					</div>
 				</div>
 			</div>
 
