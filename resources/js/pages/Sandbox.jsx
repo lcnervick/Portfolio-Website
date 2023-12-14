@@ -6,6 +6,7 @@ import InfoSlider from '../sandbox/InfoSlider/InfoSlider';
 import usePopups from '../sandbox/popups/Popups';
 import CreditCardInput from '../sandbox/CreditCardInput/CreditCardInput';
 import StarRating from '../sandbox/StarRating/StarRating';
+import profilePic from '../../images/profile-pic.png';
 
 export default function Sandbox() {
 	// Idle Timer States
@@ -133,7 +134,7 @@ export default function Sandbox() {
 				<div className='user-review-card'>
 					<div className='user-review-card-container'>
 						<figure className='user-review-avatar'>
-							{/* <img src={review.avatar} alt="Reviewer Profile Image" /> */}
+							<img src={profilePic} alt="Reviewer Profile Image" style={{borderRadius: '50%'}} />
 						</figure>
 
 						<h2 className='user-review-name'>

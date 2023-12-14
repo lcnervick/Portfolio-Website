@@ -2,10 +2,10 @@
 	position: relative;
 	max-width: 100%;
 	width: 500px;
-	height: 350px;
+	/* height: 350px; */
 	padding: 1.5rem;
 	margin-top: 2rem;
-	background-color: var(--theme-dark-accent);
+	background-color: var(--theme-light);
 	color: var(--theme-dark);
 	font-size: 16px;
 	border-top-left-radius: 10px;
@@ -37,7 +37,7 @@
 	top: -2rem;
     left: -1rem;
 	padding: 0.5rem;
-	background-color: var(--theme-dark-accent);
+	background-color: var(--theme-light);
 	border-radius: 50%;
 	box-shadow: 2px 2px 5px -3px black;
 }
