@@ -5,7 +5,7 @@ import '../../css/pages/Projects.css';
 import backgroundImage from '../../images/computer-background-3.jpg';
 import serviceToolzDark from '../../images/service-toolz-dark.png';
 import nisselyDark from '../../images/nissely-logo.png';
-import wtbDark from '../../images/wtp-letterhead-logo.png';
+import wtpDark from '../../images/wtp-letterhead-logo.png';
 import serviceToolzLight from '../../images/service-toolz-light.png';
 import activityUpliftDark from '../../images/activity-uplift.png';
 import gitHubDark from '../../images/github-logo-dark.png';
