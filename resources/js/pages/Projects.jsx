@@ -5,6 +5,7 @@ import '../../css/pages/Projects.css';
 import backgroundImage from '../../images/computer-background-3.jpg';
 import serviceToolzDark from '../../images/service-toolz-dark.png';
 import nisselyDark from '../../images/nissely-logo.png';
+import wtbDark from '../../images/wtp-letterhead-logo.png';
 import serviceToolzLight from '../../images/service-toolz-light.png';
 import activityUpliftDark from '../../images/activity-uplift.png';
 import gitHubDark from '../../images/github-logo-dark.png';
@@ -35,6 +36,21 @@ export default function Projects(props) {
       <div className="content">
         <h2>[ Projects ~] $</h2>
         <ul className="project-list">
+
+          <li className="project">
+            <figure><a href="https://synapticsoftware.net/wealthplanner/" target="_blank"><img src={wtpDark} /></a></figure>
+            <aside>
+              <p>This is a small project that I put together to help people understand how debt pay-down and asset growth can work together to provide a more productive solution.<br />
+              <a href="https://synapticsoftware.net/wealthplanner/" target="_blank">Visit the Website</a></p>
+            </aside>
+            <article>
+              <p>A client-side wealth planning simulator that models your debts, assets, and cash flow over time. It helps you test scenarios before making real financial moves.</p>
+              <p>It shows how monthly decisions can change long-term outcomes. You can compare payoff speed, asset growth, and projected net worth in one place.</p>
+              <p>You can manage multiple account types, set rates/compounding, add scheduled events, use snowball logic, and run optimizer previews. It also saves your setup locally and supports JSON import/export.</p>
+              <p>The engine runs month-by-month projections across your selected horizon. Each month it applies income inputs, expenses, payments/contributions, events, and interest, then updates each account balance.</p>
+              <p>Enter your cash flow, configure accounts, add any recurring or one-time events, then select an account card to inspect details. Use optimizer preview to test alternative allocations, compare outcomes, and apply the one you want.</p>
+            </article>
+          </li>
 
           <li className="project">
             <figure><a href="https://nissely.com" target="_blank"><img src={nisselyDark} /></a></figure>
