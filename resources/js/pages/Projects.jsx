@@ -4,6 +4,7 @@ import '../../css/pages/Projects.css';
 
 import backgroundImage from '../../images/computer-background-3.jpg';
 import serviceToolzDark from '../../images/service-toolz-dark.png';
+import nisselyDark from '../../images/nissely-logo.png';
 import serviceToolzLight from '../../images/service-toolz-light.png';
 import activityUpliftDark from '../../images/activity-uplift.png';
 import gitHubDark from '../../images/github-logo-dark.png';
@@ -34,6 +35,21 @@ export default function Projects(props) {
       <div className="content">
         <h2>[ Projects ~] $</h2>
         <ul className="project-list">
+
+          <li className="project">
+            <figure><a href="https://nissely.com" target="_blank"><img src={nisselyDark} /></a></figure>
+            <aside>
+              <p>Nissely is a shared wish list application for PC, Mac, iOS and Android aimed at simplifying the sharing of gift lists during times like birthdays, Christmas, etc.<br />
+              <a href="https://nissely.com" target="_blank">Visit the Website</a></p>
+            </aside>
+            <article>
+              <p>Nissely is a modern gift planning and sharing platform that helps you keep track of gift ideas and make it easy for others to give meaningful gifts. Instead of scrambling for ideas or guessing what someone wants, Nissely helps people coordinate thoughtful gifting.</p>
+              <p>When you come across something that would make a great gift, you can quickly save it to Nissely from your browser or phone. Over time, this builds a personal list of things you'd love to receive, so your gift ideas are always ready when birthdays, holidays, or special occasions come around.</p>
+              <p>You can share your gift lists with the people in your life so they always know what you'd genuinely appreciate. This removes the guesswork from gift giving while still allowing others to choose something meaningful.</p>
+              <p>When someone chooses a gift from your list, they can reserve it privately so others know it's already being handled. This keeps surprises intact while preventing duplicate gifts.</p>
+              <p>After the celebration, Nissely helps you keep track of who gave what so you can easily send thanks and express appreciation. The result is a smoother, more thoughtful gifting experience for everyone involved.</p>
+            </article>
+          </li>
 
           <li className="project">
             <figure><a href="https://www.servicetoolz.com" target="_blank"><img src={serviceToolzDark} /></a></figure>
