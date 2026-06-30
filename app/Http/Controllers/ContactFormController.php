@@ -16,7 +16,7 @@ class ContactFormController extends BaseController
     public function processForm(Request $request) {
         $validated = $this->validate($request, [
             'name' => 'required|min:3|max:255',
-            'email' => 'required|email:rfc,dns,spoof',
+            'email' => ['required', 'email:rfc,dns,spoof', 'regex:/^[^\r\n]+$/'],
             'message'=> 'required|max:600',
             'captchaValue'=> 'required',
         ]);
